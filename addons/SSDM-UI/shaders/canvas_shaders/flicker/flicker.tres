@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://byohvyjmqpafu"]
+
+[ext_resource type="Shader" uid="uid://nu1mgkmu8c8r" path="res://addons/SSDM-UI/shaders/canvas_shaders/flicker/canvas_flicker.gdshader" id="1_4xrk1"]
+
+[resource]
+shader = ExtResource("1_4xrk1")
+shader_parameter/flicker_enabled = 0.0
+shader_parameter/flicker_speed = 10.0
+shader_parameter/flicker_min = 0.3

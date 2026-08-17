@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b216dlylfgyq0"]
+
+[ext_resource type="Shader" uid="uid://bwjuvinorev6" path="res://addons/SSDM-UI/shaders/canvas_shaders/dissolve/canvas_dissolve.gdshader" id="1_p4d2w"]
+
+[resource]
+shader = ExtResource("1_p4d2w")
+shader_parameter/canvas_color = Color(0, 0, 1, 1)
+shader_parameter/dissolve_enabled = 0.0
+shader_parameter/dissolve_mode = 0.0
+shader_parameter/dissolve_progress = 0.0
+shader_parameter/dissolve_spread = 0.1

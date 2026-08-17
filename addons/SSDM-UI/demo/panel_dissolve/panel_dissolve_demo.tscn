@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://wgxsqucqtpew"]
+
+[ext_resource type="Script" uid="uid://lyqr6sa8ef2m" path="res://addons/SSDM-UI/demo/panel_dissolve/panel_dissolve_demo.gd" id="1_wp22u"]
+[ext_resource type="Script" uid="uid://bxwm13urj57ef" path="res://addons/SSDM-UI/animators/canvas/shader/canvas_dissolve_animator.gd" id="2_tlvac"]
+[ext_resource type="Material" uid="uid://b216dlylfgyq0" path="res://addons/SSDM-UI/shaders/canvas_shaders/dissolve/canvas_dissolve.tres" id="3_tlvac"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo5q3"]
+bg_color = Color(0.19607843, 0.19607843, 0.5882353, 1)
+
+[node name="Control" type="Control" unique_id=949356130 node_paths=PackedStringArray("animator")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wp22u")
+animator = NodePath("PanelContainer/VBoxContainer/PanelContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=22981564]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo5q3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=524712655]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer" unique_id=1705637743]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_tlvac")
+dissolve_mode = 1
+animation_speed = 5.0
+background_color = Color(0.5882353, 0.19607843, 0.19607843, 1)
+shader_material = ExtResource("3_tlvac")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1308351355]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="StartButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1999169455]
+layout_mode = 2
+text = "Start"
+
+[node name="ReverseButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=166204068]
+layout_mode = 2
+text = "Reverse"
+
+[node name="StopButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=2021298332]
+layout_mode = 2
+text = "Stop"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/ReverseButton" to="." method="_on_reverse_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/StopButton" to="." method="_on_stop_button_pressed"]
