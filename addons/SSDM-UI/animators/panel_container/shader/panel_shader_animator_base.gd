@@ -40,4 +40,3 @@ func kill() -> void:
 func _ready() -> void:
 	apply_shader()
 	original_style_box = get_theme_stylebox("panel").duplicate()
-	set_shader_paramaters()

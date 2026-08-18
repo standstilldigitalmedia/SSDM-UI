@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://dlh5mjg0gfegs"]
-
-[ext_resource type="Shader" uid="uid://r2e2k34sr44s" path="res://addons/SSDM-UI/animators/text/shader/pulse/text_pulse.gdshader" id="1_yy5n4"]
-
-[resource]
-shader = ExtResource("1_yy5n4")
-shader_parameter/shader_enabled = 0.0
-shader_parameter/pulse_speed = 2.0
-shader_parameter/pulse_min_alpha = 0.3

@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://br6yy8o2c2o8y"]
-
-[ext_resource type="Shader" uid="uid://cv6uh58jcsods" path="res://addons/SSDM-UI/animators/text/glow/glow_shader.gdshader" id="1_hoxl6"]
-
-[resource]
-shader = ExtResource("1_hoxl6")
-shader_parameter/glow_enabled = 0.0
-shader_parameter/glow_intensity = 1.0
-shader_parameter/glow_color = Color(1, 1, 1, 1)

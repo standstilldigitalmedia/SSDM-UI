@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://b4bxmt8tt7hfg"]
-
-[ext_resource type="Shader" uid="uid://cqg0rpl2e67le" path="res://addons/SSDM-UI/animators/text/shader/crawl/text_crawl.gdshader" id="1_llhwc"]
-
-[resource]
-shader = ExtResource("1_llhwc")
-shader_parameter/shader_enabled = 0.0
-shader_parameter/crawl_fade_pixels = 20.0
-shader_parameter/crawl_label_position_y = 0.0
