@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bgk2r7grtdrqc"]
+
+[ext_resource type="Shader" uid="uid://1301kgjk8u" path="res://addons/SSDM-UI/animators/panel_container/shader/shimmer/shimmer_shader.gdshader" id="1_x112h"]
+
+[resource]
+shader = ExtResource("1_x112h")
+shader_parameter/shimmer_enabled = 0.0
+shader_parameter/shimmer_speed = 2.0
+shader_parameter/shimmer_width = 0.2
+shader_parameter/shimmer_brightness = 0.5

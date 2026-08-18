@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c4w08fncj4a5l"]
+
+[ext_resource type="Shader" uid="uid://5d624y2nms58" path="res://addons/SSDM-UI/animators/text/shader/apparate/text_apparate.gdshader" id="1_vjphf"]
+
+[resource]
+shader = ExtResource("1_vjphf")
+shader_parameter/shader_enabled = 0.0
+shader_parameter/apparate_progress = 2.0
+shader_parameter/apparate_spread = 0.15

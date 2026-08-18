@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://hevgupduedwp"]
+
+[ext_resource type="Shader" uid="uid://dpmbarn65sven" path="res://addons/SSDM-UI/animators/panel_container/combined/canvas_combined.gdshader" id="1_r74ek"]
+
+[resource]
+shader = ExtResource("1_r74ek")
+shader_parameter/hue_shift_enabled = 0.0
+shader_parameter/hue_shift_speed = 1.0
+shader_parameter/glow_enabled = 0.0
+shader_parameter/glow_intensity = 1.0
+shader_parameter/glow_color = Color(1, 1, 1, 1)
+shader_parameter/shimmer_enabled = 0.0
+shader_parameter/shimmer_speed = 2.0
+shader_parameter/shimmer_width = 0.2
+shader_parameter/shimmer_brightness = 0.5
+shader_parameter/outline_enabled = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/dissolve_enabled = 0.0
+shader_parameter/dissolve_mode = 0.0
+shader_parameter/dissolve_progress = 0.0
+shader_parameter/dissolve_spread = 0.1
+shader_parameter/pulse_enabled = 0.0
+shader_parameter/pulse_speed = 2.0
+shader_parameter/pulse_min_alpha = 0.2
+shader_parameter/flicker_enabled = 0.0
+shader_parameter/flicker_speed = 10.0
+shader_parameter/flicker_min = 0.3

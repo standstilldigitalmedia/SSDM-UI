@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bo48camnikmwr"]
+
+[ext_resource type="Shader" uid="uid://bne8uggluv7k3" path="res://addons/SSDM-UI/animators/text/shader/wave/text_wave.gdshader" id="1_v0m7c"]
+
+[resource]
+shader = ExtResource("1_v0m7c")
+shader_parameter/shader_enabled = 0.0
+shader_parameter/wave_amplitude = 0.03
+shader_parameter/wave_frequency = 10.0
+shader_parameter/wave_speed = 3.0
+shader_parameter/wave_horizontal = 0.0

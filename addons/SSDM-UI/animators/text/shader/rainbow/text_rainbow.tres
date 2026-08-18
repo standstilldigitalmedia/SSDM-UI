@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dwkjk0rdgc4fk"]
+
+[ext_resource type="Shader" uid="uid://bwva165a4s3uw" path="res://addons/SSDM-UI/animators/text/shader/rainbow/text_rainbow.gdshader" id="1_7of2y"]
+
+[resource]
+shader = ExtResource("1_7of2y")
+shader_parameter/shader_enabled = 0.0
+shader_parameter/rainbow_frequency = 1.0
+shader_parameter/rainbow_speed = 1.0
+shader_parameter/rainbow_saturation = 1.0

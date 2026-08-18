@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cssg858ga3wtr"]
+
+[ext_resource type="Shader" uid="uid://b3qyyahto5jpt" path="res://addons/SSDM-UI/animators/panel_container/shader/hue_shift/hue_shift_shader.gdshader" id="1_qx6df"]
+
+[resource]
+shader = ExtResource("1_qx6df")
+shader_parameter/hue_shift_enabled = 0.0
+shader_parameter/hue_shift_speed = 1.0

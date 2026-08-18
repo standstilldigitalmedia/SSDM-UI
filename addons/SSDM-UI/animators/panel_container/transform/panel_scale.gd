@@ -1,0 +1,2 @@
+class_name SSDMCanvasScale
+extends SSDMPanelTransformAnimatorBase
