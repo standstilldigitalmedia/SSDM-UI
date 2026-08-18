@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://vqa57c56luou"]
+
+[ext_resource type="Script" uid="uid://cu0wockfmqkhe" path="res://addons/SSDM-UI/animators/panel_container/shader/pulse/pulse_animator.gd" id="1_bm7eu"]
+[ext_resource type="Material" uid="uid://cnx5cuogebapk" path="res://addons/SSDM-UI/animators/panel_container/shader/pulse/pulse_material.tres" id="2_2svul"]
+
+[node name="PulseScene" type="PanelContainer" unique_id=59314470]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bm7eu")
+shader_material = ExtResource("2_2svul")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dsg4q34ijg3o8"]
+
+[ext_resource type="Script" uid="uid://la0qwibp6sqm" path="res://addons/SSDM-UI/animators/panel_container/shader/hue_shift/hue_shift_animator.gd" id="1_1ngwe"]
+[ext_resource type="Material" uid="uid://cssg858ga3wtr" path="res://addons/SSDM-UI/animators/panel_container/shader/hue_shift/hue_shift_material.tres" id="2_duhsq"]
+
+[node name="HueShiftScene" type="PanelContainer" unique_id=2067040902]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1ngwe")
+shader_material = ExtResource("2_duhsq")

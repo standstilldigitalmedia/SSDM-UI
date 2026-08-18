@@ -7,6 +7,18 @@ extends SSDMPanelShaderAnimatorBase
 @export var shimmer_background_color: Color = Color(1.0, 1.0, 1.0, 1.0)  ## Main background color for the panel. Color animations will tween this value if enabled.
 
 
+func set_speed(new_speed: float) -> void:
+	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_SPEED, new_speed)
+	
+	
+func set_width(new_width: float) -> void:
+	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_WIDTH, new_width)
+	
+	
+func set_brighness(new_brightness: float) -> void:
+	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_BRIGHTNESS, new_brightness)
+
+
 func set_shader_paramaters() -> void:
 	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.BG_COLOR, shimmer_background_color)
 	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_SPEED, shimmer_speed)

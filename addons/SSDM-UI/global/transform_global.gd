@@ -63,3 +63,11 @@ enum ClipMode {
 	ALWAYS,  ## Always clip content to bounds during animation
 	NEVER    ## Allow content to draw outside bounds (useful for rotation effects)
 }
+
+const X_PROPERTY: String = "custom_minimum_size:x"
+const Y_PROPERTY: String = "custom_minimum_size:y"
+
+const ROTATION_PROPERTY: String = "rotation"
+const SCALE_PROPERTY: String = "scale"
+const POSITION_PROPERTY: String = "position"
+const POSITION_X_PROPERTY: String = "position:x"

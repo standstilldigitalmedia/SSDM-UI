@@ -1,30 +1,15 @@
 class_name SSDMCanvasShaderGlobal
 extends RefCounted
 
-
-#canvas 
-const X_PROPERTY: String = "custom_minimum_size:x"
-const Y_PROPERTY: String = "custom_minimum_size:y"
-
-const SCALE_PROPERTY: String = "scale"
-
 const MODULATE_A_PROPERTY: String = "modulate:a"
 const MODULATE_PROPERTY: String = "modulate"
-
-const ROTATION_PROPERTY: String = "rotation"
-const POSITION_PROPERTY: String = "position"
-
-const POSITION_X_PROPERTY: String = "position:x"
 
 const SHADER_PARAMETER: String = "shader_parameter/"
 const SHADER_ENABLED: String = "shader_enabled"
 
+#panel container
 const HUE_SHIFT_ENABLED: String = "hue_shift_enabled"
 const HUE_SHIFT_SPEED: String = "hue_shift_speed"
-
-const GLOW_ENABLED: String = "glow_enabled"
-const GLOW_INTENSITY: String = "glow_intensity"
-const GLOW_COLOR: String = "glow_color"
 
 const SHIMMER_ENABLED: String = "shimmer_enabled"
 const SHIMMER_SPEED: String = "shimmer_speed"
@@ -87,3 +72,7 @@ const CRAWL_ENABLED: String = "crawl_enabled"
 const CRAWL_VIEWPORT: String = "CrawlViewport"
 const CRAWL_FADE_PIXELS: String = "crawl_fade_pixels"
 const CRAWL_LABEL_POSITION_Y: String = "crawl_label_position_y"
+
+const GLOW_ENABLED: String = "glow_enabled"
+const GLOW_INTENSITY: String = "glow_intensity"
+const GLOW_COLOR: String = "glow_color"

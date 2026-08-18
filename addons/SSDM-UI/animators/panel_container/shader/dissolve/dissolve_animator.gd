@@ -17,23 +17,41 @@ enum DissolveMode
 @export var dissolve_transition_type: Tween.TransitionType = Tween.TRANS_CUBIC  ## Math curve for animation motion.
 @export var dissolve_background_color: Color = Color(1.0, 1.0, 1.0, 1.0)  ## Main background color for the panel. Color animations will tween this value if enabled.
 
-
-
 var main_tween: Tween
+
+
+func set_speed(new_speed: float) -> void:
+	dissolve_speed = new_speed
 	
 	
-func forward_progress() -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 0.0)
+func set_mode(new_mode: DissolveMode) -> void:
+	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_MODE, new_mode)
+	
+	
+func set_spread(new_spread: float) -> void:
+	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_SPREAD, new_spread)
+	
+	
+func set_ease_type_open(new_ease_type_open: Tween.EaseType) -> void:
+	dissolve_ease_type_open = new_ease_type_open
+	
+	
+func set_transition_type(new_transition_type: Tween.TransitionType) -> void:
+	dissolve_transition_type = new_transition_type
 	
 	
 func reverse_progress() -> void:
+	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 0.0)
+	
+	
+func forward_progress() -> void:
 	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 1.0)
 
 
 func set_shader_paramaters() -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.BG_COLOR, dissolve_background_color)
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_MODE, dissolve_mode)
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_SPREAD, dissolve_spread)
+	set_background_color(dissolve_background_color)
+	set_mode(dissolve_mode)
+	set_spread(dissolve_spread)
 	
 
 func create_new_tween() -> void:
@@ -45,28 +63,15 @@ func create_new_tween() -> void:
 	main_tween.set_trans(dissolve_transition_type)
 	
 
-func tween_forward() -> void:
+func tween_reverse() -> void:
 	main_tween.tween_property(shader_material, SSDMCanvasShaderGlobal.SHADER_PARAMETER + SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 1.0, dissolve_speed)
 	
 	
-func tween_reverse() -> void:
+func tween_forward() -> void:
 	var current_progress = shader_material.get_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS)
 	if current_progress == null:
 		current_progress = 1.0
 	main_tween.tween_property(shader_material, SSDMCanvasShaderGlobal.SHADER_PARAMETER + SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 0.0, dissolve_speed * float(current_progress))	
-	
-	
-func play() -> void:
-	create_new_tween()
-	enable_shader()
-	forward_progress()
-	tween_forward()
-	await main_tween.finished
-	disable_shader()
-	var new_style_box: StyleBox = StyleBoxFlat.new()
-	new_style_box.set("bg_color", dissolve_background_color)
-	add_theme_stylebox_override("panel", new_style_box)
-	finished.emit()
 	
 	
 func reverse() -> void:
@@ -76,7 +81,20 @@ func reverse() -> void:
 	tween_reverse()
 	await main_tween.finished
 	disable_shader()
-	add_theme_stylebox_override("panel", original_style_box)
+	#var new_style_box: StyleBox = StyleBoxFlat.new()
+	#new_style_box.set("bg_color", dissolve_background_color)
+	#add_theme_stylebox_override("panel", new_style_box)
+	finished.emit()
+	
+	
+func play() -> void:
+	create_new_tween()
+	enable_shader()
+	forward_progress()
+	tween_forward()
+	await main_tween.finished
+	#disable_shader()
+	#add_theme_stylebox_override("panel", _original_style_box)
 	finished.emit()
 	
 	

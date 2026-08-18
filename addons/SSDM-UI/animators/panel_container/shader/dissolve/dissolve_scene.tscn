@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b0yn1nr3x2yly"]
+
+[ext_resource type="Script" uid="uid://bxwm13urj57ef" path="res://addons/SSDM-UI/animators/panel_container/shader/dissolve/dissolve_animator.gd" id="1_da8dq"]
+[ext_resource type="Material" uid="uid://b216dlylfgyq0" path="res://addons/SSDM-UI/animators/panel_container/shader/dissolve/dissolve_material.tres" id="2_o4t14"]
+
+[node name="DissolveScene" type="PanelContainer" unique_id=347797415]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_da8dq")
+shader_material = ExtResource("2_o4t14")

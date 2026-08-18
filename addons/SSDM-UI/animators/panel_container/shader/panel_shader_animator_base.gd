@@ -1,20 +1,17 @@
-class_name SSDMPanelShaderAnimatorBase
+@abstract class_name SSDMPanelShaderAnimatorBase
 extends Control
-
 
 @export var shader_material: ShaderMaterial
 
-var original_material: Material
-var original_style_box: StyleBox
+var _original_material: Material
+var _original_style_box: StyleBox
 
 
-func set_shader_paramaters() -> void:
-	pass
-
-func apply_shader() -> void:
-	if not original_material and material:
-		original_material = material
-	material = shader_material
+@abstract func set_shader_paramaters() -> void
+	
+	
+func set_background_color(new_background_color: Color) -> void:
+	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.BG_COLOR, new_background_color)
 	
 	
 func enable_shader() -> void:
@@ -37,6 +34,13 @@ func kill() -> void:
 	disable_shader()
 	
 	
+func _apply_shader() -> void:
+	if not _original_material and material:
+		_original_material = material
+	material = shader_material
+	
+	
 func _ready() -> void:
-	apply_shader()
-	original_style_box = get_theme_stylebox("panel").duplicate()
+	_apply_shader()
+	_original_style_box = get_theme_stylebox("panel").duplicate()
+	set_shader_paramaters()

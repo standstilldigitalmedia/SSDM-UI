@@ -28,6 +28,6 @@ void fragment() {
 		}
 		float edge = smoothstep(dissolve_progress - dissolve_spread, dissolve_progress, threshold);
 		color.a *= 1.0 - edge;
-		COLOR = color;
 	}
+	COLOR = color;
 }
