@@ -1,32 +1,29 @@
-@abstract class_name SSDMPanelShaderAnimatorBase
+@abstract class_name SSDMUISingleControlShaderAnimatorBase
 extends Control
 
-@export var shader_material: ShaderMaterial
+const BG_COLOR: String = "bg_color"
+const SHADER_PARAMETER: String = "shader_parameter/"
+const SHADER_ENABLED: String = "shader_enabled"
 
-var _original_material: Material
-var _original_style_box: StyleBox
+@export var shader_material: ShaderMaterial
 
 
 @abstract func set_shader_paramaters() -> void
 	
 	
 func set_background_color(new_background_color: Color) -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.BG_COLOR, new_background_color)
+	shader_material.set_shader_parameter(BG_COLOR, new_background_color)
 	
 	
 func enable_shader() -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHADER_ENABLED, 1.0)
+	shader_material.set_shader_parameter(SHADER_ENABLED, 1.0)
 	
 	
 func disable_shader() -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHADER_ENABLED, 0.0)
+	shader_material.set_shader_parameter(SHADER_ENABLED, 0.0)
 	
 
 func play() -> void:
-	enable_shader()
-	
-	
-func reverse() -> void:
 	enable_shader()
 	
 	
@@ -35,12 +32,9 @@ func kill() -> void:
 	
 	
 func _apply_shader() -> void:
-	if not _original_material and material:
-		_original_material = material
 	material = shader_material
 	
 	
 func _ready() -> void:
 	_apply_shader()
-	_original_style_box = get_theme_stylebox("panel").duplicate()
 	set_shader_paramaters()

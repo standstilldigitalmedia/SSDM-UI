@@ -1,10 +1,10 @@
 extends PanelContainer
 
-@export var dissolve_animator: SSDMDissolveAnimator
-@export var flicker_animator: SSDMFlickerAnimator
-@export var hue_shift_animator: SSDMHueShiftAnimator
-@export var pulse_animator: SSDMPulseAnimator
-@export var shimmer_animator: SSDMShimmerAnimator
+@export var dissolve_animator: SSDMUIControlDissolveAnimator
+@export var flicker_animator: SSDMUIControlFlickerAnimator
+@export var hue_shift_animator: SSDMUIControlHueShiftAnimator
+@export var pulse_animator: SSDMUIControlPulseAnimator
+@export var shimmer_animator: SSDMUIControlShimmerAnimator
 
 
 func _on_dissolve_start_button_pressed() -> void:

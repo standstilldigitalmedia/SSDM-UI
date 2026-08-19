@@ -1,5 +1,10 @@
-class_name SSDMShimmerAnimator
-extends SSDMPanelShaderAnimatorBase
+class_name SSDMUIControlShimmerAnimator
+extends SSDMUISingleControlShaderAnimatorBase
+
+const SHIMMER_ENABLED: String = "shimmer_enabled"
+const SHIMMER_SPEED: String = "shimmer_speed"
+const SHIMMER_WIDTH: String = "shimmer_width"
+const SHIMMER_BRIGHTNESS: String = "shimmer_brightness"
 
 @export var shimmer_speed: float = 2.0  ## How fast the shimmer band moves.
 @export var shimmer_width: float = 0.2  ## Fractional width of the shimmer band (0-1).
@@ -8,19 +13,19 @@ extends SSDMPanelShaderAnimatorBase
 
 
 func set_speed(new_speed: float) -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_SPEED, new_speed)
+	shader_material.set_shader_parameter(SHIMMER_SPEED, new_speed)
 	
 	
 func set_width(new_width: float) -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_WIDTH, new_width)
+	shader_material.set_shader_parameter(SHIMMER_WIDTH, new_width)
 	
 	
 func set_brighness(new_brightness: float) -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_BRIGHTNESS, new_brightness)
+	shader_material.set_shader_parameter(SHIMMER_BRIGHTNESS, new_brightness)
 
 
 func set_shader_paramaters() -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.BG_COLOR, shimmer_background_color)
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_SPEED, shimmer_speed)
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_WIDTH, shimmer_width)
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.SHIMMER_BRIGHTNESS, shimmer_brightness)
+	set_background_color(shimmer_background_color)
+	set_speed(shimmer_speed)
+	set_width(shimmer_width)
+	set_brighness(shimmer_brightness)

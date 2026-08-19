@@ -1,7 +1,12 @@
-class_name SSDMDissolveAnimator
-extends SSDMPanelShaderAnimatorBase
+class_name SSDMUIControlDissolveAnimator
+extends SSDMUISingleControlShaderAnimatorBase
 
 signal finished
+
+const DISSOLVE_ENABLED: String = "dissolve_enabled"
+const DISSOLVE_MODE: String = "dissolve_mode"
+const DISSOLVE_PROGRESS: String = "dissolve_progress"
+const DISSOLVE_SPREAD: String = "dissolve_spread"
 
 enum DissolveMode 
 { 
@@ -25,11 +30,11 @@ func set_speed(new_speed: float) -> void:
 	
 	
 func set_mode(new_mode: DissolveMode) -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_MODE, new_mode)
+	shader_material.set_shader_parameter(DISSOLVE_MODE, new_mode)
 	
 	
 func set_spread(new_spread: float) -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_SPREAD, new_spread)
+	shader_material.set_shader_parameter(DISSOLVE_SPREAD, new_spread)
 	
 	
 func set_ease_type_open(new_ease_type_open: Tween.EaseType) -> void:
@@ -41,11 +46,11 @@ func set_transition_type(new_transition_type: Tween.TransitionType) -> void:
 	
 	
 func reverse_progress() -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 0.0)
+	shader_material.set_shader_parameter(DISSOLVE_PROGRESS, 0.0)
 	
 	
 func forward_progress() -> void:
-	shader_material.set_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 1.0)
+	shader_material.set_shader_parameter(DISSOLVE_PROGRESS, 1.0)
 
 
 func set_shader_paramaters() -> void:
@@ -64,14 +69,14 @@ func create_new_tween() -> void:
 	
 
 func tween_reverse() -> void:
-	main_tween.tween_property(shader_material, SSDMCanvasShaderGlobal.SHADER_PARAMETER + SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 1.0, dissolve_speed)
+	main_tween.tween_property(shader_material, SSDMUISingleControlShaderAnimatorBase.SHADER_PARAMETER + DISSOLVE_PROGRESS, 1.0, dissolve_speed)
 	
 	
 func tween_forward() -> void:
-	var current_progress = shader_material.get_shader_parameter(SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS)
+	var current_progress = shader_material.get_shader_parameter(DISSOLVE_PROGRESS)
 	if current_progress == null:
 		current_progress = 1.0
-	main_tween.tween_property(shader_material, SSDMCanvasShaderGlobal.SHADER_PARAMETER + SSDMCanvasShaderGlobal.DISSOLVE_PROGRESS, 0.0, dissolve_speed * float(current_progress))	
+	main_tween.tween_property(shader_material, SSDMUISingleControlShaderAnimatorBase.SHADER_PARAMETER + DISSOLVE_PROGRESS, 0.0, dissolve_speed * float(current_progress))	
 	
 	
 func reverse() -> void:
@@ -81,9 +86,6 @@ func reverse() -> void:
 	tween_reverse()
 	await main_tween.finished
 	disable_shader()
-	#var new_style_box: StyleBox = StyleBoxFlat.new()
-	#new_style_box.set("bg_color", dissolve_background_color)
-	#add_theme_stylebox_override("panel", new_style_box)
 	finished.emit()
 	
 	
@@ -93,8 +95,6 @@ func play() -> void:
 	forward_progress()
 	tween_forward()
 	await main_tween.finished
-	#disable_shader()
-	#add_theme_stylebox_override("panel", _original_style_box)
 	finished.emit()
 	
 	
