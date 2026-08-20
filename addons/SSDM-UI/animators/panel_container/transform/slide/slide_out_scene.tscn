@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bjcy20bl8n764"]
+
+[ext_resource type="Script" uid="uid://dubutknirawyl" path="res://addons/SSDM-UI/animators/panel_container/transform/slide/slide_out_animator.gd" id="1_grqj3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
+bg_color = Color(1, 1, 1, 0.078431375)
+
+[node name="Wrapper" type="Control" unique_id=1991166403 node_paths=PackedStringArray("panel_container")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_grqj3")
+axis = 1
+panel_container = NodePath("ContentPanelContainer")
+
+[node name="ContentPanelContainer" type="PanelContainer" parent="." unique_id=1160490147]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_astwa")

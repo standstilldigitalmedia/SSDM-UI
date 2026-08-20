@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://co24raluoil47"]
+
+[ext_resource type="Script" uid="uid://b4811tpcg6qpn" path="res://addons/SSDM-UI/animators/panel_container/transform/rotate/rotate_animator.gd" id="1_6k0ch"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
+bg_color = Color(1, 1, 1, 0.078431375)
+
+[node name="Wrapper" type="Control" unique_id=1991166403 node_paths=PackedStringArray("isolation", "panel_container")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_6k0ch")
+isolation = NodePath("Isolation")
+panel_container = NodePath("Isolation/ContentPanelContainer")
+
+[node name="Isolation" type="Control" parent="." unique_id=1997684978]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ContentPanelContainer" type="PanelContainer" parent="Isolation" unique_id=1160490147]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_astwa")
