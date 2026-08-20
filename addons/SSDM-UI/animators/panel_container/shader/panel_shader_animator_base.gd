@@ -8,27 +8,27 @@ const SHADER_ENABLED: String = "shader_enabled"
 @export var shader_material: ShaderMaterial
 
 
-@abstract func set_shader_paramaters() -> void
+@abstract func _init_shader_paramaters() -> void
 	
 	
 func set_background_color(new_background_color: Color) -> void:
 	shader_material.set_shader_parameter(BG_COLOR, new_background_color)
 	
 	
-func enable_shader() -> void:
-	shader_material.set_shader_parameter(SHADER_ENABLED, 1.0)
-	
-	
-func disable_shader() -> void:
-	shader_material.set_shader_parameter(SHADER_ENABLED, 0.0)
-	
-
 func play() -> void:
-	enable_shader()
+	_enable_shader()
 	
 	
 func kill() -> void:
-	disable_shader()
+	_disable_shader()
+	
+	
+func _enable_shader() -> void:
+	shader_material.set_shader_parameter(SHADER_ENABLED, 1.0)
+	
+	
+func _disable_shader() -> void:
+	shader_material.set_shader_parameter(SHADER_ENABLED, 0.0)
 	
 	
 func _apply_shader() -> void:
@@ -37,4 +37,4 @@ func _apply_shader() -> void:
 	
 func _ready() -> void:
 	_apply_shader()
-	set_shader_paramaters()
+	_init_shader_paramaters()

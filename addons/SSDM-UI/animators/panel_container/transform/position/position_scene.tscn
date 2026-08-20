@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
 bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="Wrapper" type="Control" unique_id=1991166403 node_paths=PackedStringArray("panel_container")]
+[node name="PositionScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("panel_container")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -13,7 +13,6 @@ offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_of3wo")
-position_offset = Vector2(100, 100)
 panel_container = NodePath("ContentPanelContainer")
 
 [node name="ContentPanelContainer" type="PanelContainer" parent="." unique_id=1160490147]

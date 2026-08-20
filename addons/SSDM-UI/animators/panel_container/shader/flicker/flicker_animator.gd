@@ -18,7 +18,7 @@ func set_min_alpha(new_min: float) -> void:
 	shader_material.set_shader_parameter(FLICKER_MIN, new_min)
 	
 
-func set_shader_paramaters() -> void:
+func _init_shader_paramaters() -> void:
 	set_background_color(flicker_background_color)
 	set_speed(flicker_speed)
 	set_min_alpha(flicker_min_alpha)

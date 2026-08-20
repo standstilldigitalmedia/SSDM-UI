@@ -25,14 +25,10 @@ const MODULATE_PROPERTY: String = "modulate"
 const ROTATION_PROPERTY: String = "rotation"
 const POSITION_PROPERTY: String = "position"
 const POSITION_X_PROPERTY: String = "position:x"
+const PANEL_THEME: String = "panel"
 
 @export var content: Control
-
-@export_group("Timing and Easing")
-@export var animation_speed: float = 1.0  ## Duration of tween animations in seconds.
-@export var transition_type: Tween.TransitionType = Tween.TRANS_CUBIC  ## Math curve for animation motion.
-@export var ease_type_open: Tween.EaseType = Tween.EASE_OUT  ## Easing for opening/forward animation.
-@export var ease_type_close: Tween.EaseType = Tween.EASE_IN  ## Easing for closing/reverse animation.
+@export var background_color: Color = Color(1,1,1,1)
 
 @export_group("Controls")
 @export var panel_container: PanelContainer
@@ -42,23 +38,37 @@ var monitoring: bool = false
 var is_open: bool = false
 
 
-@abstract func _set_tween_forward() -> void
-@abstract func _set_tween_reverse() -> void
+@abstract func set_speed(new_speed: float) -> void
+@abstract func set_transition_type(new_trans_type: Tween.TransitionType) -> void
+@abstract func set_ease_type_open(new_open_type: Tween.EaseType) -> void
+@abstract func set_ease_type_close(new_close_type: Tween.EaseType) -> void
+@abstract func _init_tween_forward() -> void
+@abstract func _init_tween_reverse() -> void
 @abstract func _tween_forward() -> void
 @abstract func _tween_reverse() -> void
+@abstract func _create_open_tween() -> void
+@abstract func _create_close_tween() -> void
 
+func set_background_color(new_color: Color) -> void:
+	var new_style_box: StyleBox = panel_container.get_theme_stylebox(PANEL_THEME)
+	new_style_box.bg_color = new_color
+	
+
+func kill_tween() -> void:
+	if main_tween:
+		main_tween.kill()
 
 func play() -> void:
 	kill_tween()
-	_set_tween_forward()
-	_create_new_tween()
+	_init_tween_forward()
+	_create_open_tween()
 	await _tween_forward()
 	
 	
 func reverse() -> void:
 	kill_tween()
-	_set_tween_reverse()
-	_create_new_tween()
+	_init_tween_reverse()
+	_create_close_tween()
 	await _tween_reverse()
 	
 
@@ -86,18 +96,8 @@ func _get_pivot_offset(node: Control, preset: RotationPivot) -> Vector2:
 	return Vector2.ZERO
 	
 	
-func _create_new_tween() -> void:
-	main_tween = create_tween()
-	main_tween.set_parallel(false)
-	main_tween.set_ease(ease_type_close)
-	main_tween.set_trans(transition_type)
-	
-	
-func kill_tween() -> void:
-	if main_tween:
-		main_tween.kill()
-	
-	
 func _ready() -> void:
 	if content:
 		panel_container.add_child(content)
+		
+	set_background_color(background_color)

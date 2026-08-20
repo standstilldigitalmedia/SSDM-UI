@@ -12,6 +12,6 @@ func set_speed(new_speed: float) -> void:
 	shader_material.set_shader_parameter(HUE_SHIFT_SPEED, new_speed)
 	
 	
-func set_shader_paramaters() -> void:
+func _init_shader_paramaters() -> void:
 	set_background_color(hue_shift_background_color)
 	set_speed(hue_shift_speed)

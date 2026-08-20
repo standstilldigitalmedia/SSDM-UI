@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
 bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="Wrapper" type="Control" unique_id=1991166403 node_paths=PackedStringArray("panel_container")]
+[node name="SlideOutScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("panel_container")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

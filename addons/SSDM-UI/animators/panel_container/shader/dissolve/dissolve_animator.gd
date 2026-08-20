@@ -18,9 +18,12 @@ enum DissolveMode
 @export var dissolve_speed: float = 1.0  ## How many seconds the full animation takes.
 @export var dissolve_mode: DissolveMode = DissolveMode.NOISE  ## UV_SWEEP = left-to-right; NOISE = random threshold; RADIAL = from center outward.
 @export var dissolve_spread: float = 0.1  ## Edge softness of the dissolve transition.
-@export var dissolve_ease_type_open: Tween.EaseType = Tween.EASE_OUT  ## Easing for opening/forward animation.
-@export var dissolve_transition_type: Tween.TransitionType = Tween.TRANS_CUBIC  ## Math curve for animation motion.
 @export var dissolve_background_color: Color = Color(1.0, 1.0, 1.0, 1.0)  ## Main background color for the panel. Color animations will tween this value if enabled.
+
+@export_group("Easing")
+@export var dissolve_transition_type: Tween.TransitionType = Tween.TRANS_CUBIC  ## Math curve for animation motion.
+@export var dissolve_ease_type_open: Tween.EaseType = Tween.EASE_OUT  ## Easing for opening/forward animation.
+@export var dissolve_ease_type_close: Tween.EaseType = Tween.EASE_IN  ## Easing for closing/reverse animation.
 
 var main_tween: Tween
 
@@ -45,60 +48,65 @@ func set_transition_type(new_transition_type: Tween.TransitionType) -> void:
 	dissolve_transition_type = new_transition_type
 	
 	
-func reverse_progress() -> void:
-	shader_material.set_shader_parameter(DISSOLVE_PROGRESS, 0.0)
+func play() -> void:
+	_create_open_tween()
+	_enable_shader()
+	_init_tween_forward()
+	_tween_forward()
+	await main_tween.finished
+	finished.emit()
 	
+
+func reverse() -> void:
+	_create_close_tween()
+	_enable_shader()
+	_init_tween_reverse()
+	_tween_reverse()
+	await main_tween.finished
+	_disable_shader()
+	finished.emit()
 	
-func forward_progress() -> void:
+		
+func kill() -> void:
+	if main_tween:
+		main_tween.kill()
+	_disable_shader()
+
+
+func _init_tween_forward() -> void:
 	shader_material.set_shader_parameter(DISSOLVE_PROGRESS, 1.0)
+		
+	
+func _init_tween_reverse() -> void:
+	shader_material.set_shader_parameter(DISSOLVE_PROGRESS, 0.0)
 
 
-func set_shader_paramaters() -> void:
+func _init_shader_paramaters() -> void:
 	set_background_color(dissolve_background_color)
 	set_mode(dissolve_mode)
 	set_spread(dissolve_spread)
 	
 
-func create_new_tween() -> void:
-	if main_tween:
-		main_tween.kill()
+func _create_open_tween() -> void:
 	main_tween = create_tween()
 	main_tween.set_parallel(false)
-	main_tween.set_ease(dissolve_ease_type_open)
 	main_tween.set_trans(dissolve_transition_type)
+	main_tween.set_ease(dissolve_ease_type_open)
 	
-
-func tween_reverse() -> void:
+		
+func _create_close_tween() -> void:
+	main_tween = create_tween()
+	main_tween.set_parallel(false)
+	main_tween.set_trans(dissolve_transition_type)
+	main_tween.set_ease(dissolve_ease_type_close)
+	
+	
+func _tween_reverse() -> void:
 	main_tween.tween_property(shader_material, SSDMUISingleControlShaderAnimatorBase.SHADER_PARAMETER + DISSOLVE_PROGRESS, 1.0, dissolve_speed)
 	
 	
-func tween_forward() -> void:
+func _tween_forward() -> void:
 	var current_progress = shader_material.get_shader_parameter(DISSOLVE_PROGRESS)
 	if current_progress == null:
 		current_progress = 1.0
 	main_tween.tween_property(shader_material, SSDMUISingleControlShaderAnimatorBase.SHADER_PARAMETER + DISSOLVE_PROGRESS, 0.0, dissolve_speed * float(current_progress))	
-	
-	
-func reverse() -> void:
-	create_new_tween()
-	enable_shader()
-	reverse_progress()
-	tween_reverse()
-	await main_tween.finished
-	disable_shader()
-	finished.emit()
-	
-	
-func play() -> void:
-	create_new_tween()
-	enable_shader()
-	forward_progress()
-	tween_forward()
-	await main_tween.finished
-	finished.emit()
-	
-	
-func kill() -> void:
-	if main_tween:
-		main_tween.kill()
-	disable_shader()

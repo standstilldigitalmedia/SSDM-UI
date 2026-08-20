@@ -24,7 +24,7 @@ func set_brighness(new_brightness: float) -> void:
 	shader_material.set_shader_parameter(SHIMMER_BRIGHTNESS, new_brightness)
 
 
-func set_shader_paramaters() -> void:
+func _init_shader_paramaters() -> void:
 	set_background_color(shimmer_background_color)
 	set_speed(shimmer_speed)
 	set_width(shimmer_width)

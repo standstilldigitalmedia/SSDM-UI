@@ -18,7 +18,7 @@ func set_min_alpha(new_min_alpha: float) -> void:
 	shader_material.set_shader_parameter(PULSE_MIN_ALPHA, new_min_alpha)
 	
 	
-func set_shader_paramaters() -> void:
+func _init_shader_paramaters() -> void:
 	set_background_color(pulse_background_color)
 	set_speed(pulse_speed)
 	set_min_alpha(pulse_min_alpha)
