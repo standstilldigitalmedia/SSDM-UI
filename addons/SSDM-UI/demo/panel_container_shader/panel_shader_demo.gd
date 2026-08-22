@@ -50,6 +50,10 @@ func _on_flicker_speed_spin_box_value_changed(value: float) -> void:
 func _on_flicker_min_alpha_spin_box_value_changed(value: float) -> void:
 	flicker_animator.set_min_alpha(value)
 	
+
+func _on_flicker_duration_spin_box_value_changed(value: float) -> void:
+	flicker_animator.set_duration(value)
+	
 	
 func _on_flicker_background_color_picker_button_color_changed(color: Color) -> void:
 	flicker_animator.set_background_color(color)
@@ -66,7 +70,11 @@ func _on_hue_shift_stop_button_pressed() -> void:
 func _on_hue_shift_speed_spin_box_value_changed(value: float) -> void:
 	hue_shift_animator.set_speed(value)
 	
-	
+
+func _on_hue_shift_duration_spin_box_value_changed(value: float) -> void:
+	hue_shift_animator.set_duration(value)
+
+
 func _on_hue_shift_background_color_picker_button_color_changed(color: Color) -> void:
 	hue_shift_animator.set_background_color(color)
 
@@ -87,6 +95,10 @@ func _on_pulse_min_alpha_spin_box_value_changed(value: float) -> void:
 	pulse_animator.set_min_alpha(value)
 
 
+func _on_pulse_duration_spin_box_value_changed(value: float) -> void:
+	pulse_animator.set_duration(value)
+	
+	
 func _on_pulse_background_color_picker_button_color_changed(color: Color) -> void:
 	pulse_animator.set_background_color(color)
 
@@ -110,6 +122,10 @@ func _on_shimmer_width_spin_box_value_changed(value: float) -> void:
 func _on_shimmer_brightness_spin_box_value_changed(value: float) -> void:
 	shimmer_animator.set_brighness(value)
 
+
+func _on_shimmer_duration_spin_box_value_changed(value: float) -> void:
+	shimmer_animator.set_duration(value)
+	
 
 func _on_shimmer_background_color_picker_button_color_changed(color: Color) -> void:
 	shimmer_animator.set_background_color(color)

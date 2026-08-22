@@ -60,9 +60,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Position"
 horizontal_alignment = 1
 
-[node name="PositionScene" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1991166403 instance=ExtResource("2_abrvf")]
+[node name="PositionScene" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1991166403 node_paths=PackedStringArray("content") instance=ExtResource("2_abrvf")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+content = NodePath("../Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2046657658]
 layout_mode = 2
@@ -91,6 +92,8 @@ text = "Speed:"
 
 [node name="PositionSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1984481660]
 layout_mode = 2
+step = 0.01
+value = 1.0
 
 [node name="Label2" type="Label" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1356705421]
 layout_mode = 2
@@ -98,9 +101,10 @@ text = "X offset:"
 
 [node name="PositionXOffsetSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1362477157]
 layout_mode = 2
-max_value = 500.0
-step = 0.1
-value = 10.0
+min_value = 0.1
+max_value = 4000.0
+step = 0.01
+value = 20.0
 
 [node name="Label3" type="Label" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=823409804]
 layout_mode = 2
@@ -108,9 +112,10 @@ text = "Y offset:"
 
 [node name="PostionYOffsetSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2014482237]
 layout_mode = 2
-max_value = 500.0
-step = 0.1
-value = 10.0
+min_value = 0.1
+max_value = 4000.0
+step = 0.01
+value = 20.0
 
 [node name="Label5" type="Label" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1953202605]
 layout_mode = 2
@@ -220,9 +225,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Rotation"
 horizontal_alignment = 1
 
-[node name="RotateScene" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer" unique_id=718648770 instance=ExtResource("3_abrvf")]
+[node name="RotateScene" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer" unique_id=718648770 node_paths=PackedStringArray("content") instance=ExtResource("3_abrvf")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+content = NodePath("../Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1946384678]
 layout_mode = 2
@@ -253,20 +259,8 @@ text = "Speed:"
 
 [node name="RotationSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1602213885]
 layout_mode = 2
-min_value = 0.01
-max_value = 10.0
-step = 0.1
-value = 1.01
-
-[node name="Label6" type="Label" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2060386745]
-layout_mode = 2
-text = "Roate to:"
-
-[node name="RotationToSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=393853354]
-layout_mode = 2
-max_value = 1.0
-step = 0.1
-value = 0.1
+step = 0.01
+value = 1.0
 
 [node name="Label8" type="Label" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=826007239]
 layout_mode = 2
@@ -274,9 +268,18 @@ text = "Roate from:"
 
 [node name="RotationFromSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1257695026]
 layout_mode = 2
-max_value = 1.0
-step = 0.1
-value = 0.1
+max_value = 4000.0
+step = 0.01
+
+[node name="Label6" type="Label" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2060386745]
+layout_mode = 2
+text = "Roate to:"
+
+[node name="RotationToSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=393853354]
+layout_mode = 2
+max_value = 4000.0
+step = 0.01
+value = 360.0
 
 [node name="Label2" type="Label" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=912943613]
 layout_mode = 2
@@ -414,9 +417,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Scale"
 horizontal_alignment = 1
 
-[node name="ScaleScene" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/VBoxContainer" unique_id=924517380 instance=ExtResource("4_p6c7l")]
+[node name="ScaleScene" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/VBoxContainer" unique_id=924517380 node_paths=PackedStringArray("content") instance=ExtResource("4_p6c7l")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+content = NodePath("../Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1209358833]
 layout_mode = 2
@@ -446,9 +450,8 @@ text = "Speed:"
 
 [node name="ScaleSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1087955318]
 layout_mode = 2
-max_value = 60.0
-step = 0.1
-value = 10.0
+step = 0.01
+value = 1.0
 
 [node name="Label" type="Label" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2104497456]
 layout_mode = 2
@@ -487,6 +490,8 @@ text = "Scale from X:"
 
 [node name="ScaleFromXSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HBoxContainer" unique_id=1203067617]
 layout_mode = 2
+max_value = 4000.0
+step = 0.01
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1611028615]
 layout_mode = 2
@@ -497,6 +502,9 @@ text = "Y:"
 
 [node name="ScaleFromYSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HBoxContainer3" unique_id=1027242183]
 layout_mode = 2
+max_value = 4000.0
+step = 0.01
+value = 0.1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=131950056]
 layout_mode = 2
@@ -507,6 +515,9 @@ text = "Scale to X:"
 
 [node name="ScaleToXSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HBoxContainer2" unique_id=776461893]
 layout_mode = 2
+max_value = 4000.0
+step = 0.01
+value = 1.0
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=268600840]
 layout_mode = 2
@@ -517,6 +528,9 @@ text = "Y:"
 
 [node name="ScaleToYSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HBoxContainer4" unique_id=695831175]
 layout_mode = 2
+max_value = 4000.0
+step = 0.01
+value = 1.0
 
 [node name="Label10" type="Label" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=66345762]
 layout_mode = 2
@@ -626,9 +640,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Shake"
 horizontal_alignment = 1
 
-[node name="ShakeScene" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=702556671 instance=ExtResource("5_mxpb5")]
+[node name="ShakeScene" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=702556671 node_paths=PackedStringArray("content") instance=ExtResource("5_mxpb5")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+content = NodePath("../Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=1670410778]
 layout_mode = 2
@@ -660,9 +675,8 @@ text = "Speed:"
 
 [node name="ShakeSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=715043681]
 layout_mode = 2
-max_value = 20.0
-step = 0.1
-value = 5.0
+step = 0.01
+value = 0.05
 
 [node name="Label12" type="Label" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=926194080]
 layout_mode = 2
@@ -670,9 +684,9 @@ text = "Amount:"
 
 [node name="ShakeAmountSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=40519414]
 layout_mode = 2
-max_value = 1.0
-step = 0.1
-value = 0.2
+max_value = 4000.0
+step = 0.01
+value = 3.0
 
 [node name="Label13" type="Label" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1121416680]
 layout_mode = 2
@@ -708,9 +722,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Slide"
 horizontal_alignment = 1
 
-[node name="SlideOutScene" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2011918564 instance=ExtResource("6_vr34q")]
+[node name="SlideOutScene" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2011918564 node_paths=PackedStringArray("content") instance=ExtResource("6_vr34q")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+content = NodePath("../Label")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/VBoxContainer" unique_id=161233031]
 layout_mode = 2
@@ -740,8 +755,7 @@ text = "Speed:"
 
 [node name="SlideSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=581087283]
 layout_mode = 2
-max_value = 10.0
-step = 0.1
+step = 0.01
 value = 1.0
 
 [node name="Label4" type="Label" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1523464222]
@@ -750,7 +764,7 @@ text = "Axis:"
 
 [node name="SlideAxisOptionButton" type="OptionButton" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1581914374]
 layout_mode = 2
-selected = 0
+selected = 1
 item_count = 2
 popup/item_0/text = "Vertical"
 popup/item_0/id = 0
@@ -776,6 +790,9 @@ text = "Panel width:"
 
 [node name="SlidePanelWidthSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=213236459]
 layout_mode = 2
+max_value = 4000.0
+step = 0.01
+value = 400.0
 
 [node name="Label15" type="Label" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1040750373]
 layout_mode = 2
@@ -872,8 +889,8 @@ popup/item_3/id = 3
 [connection signal="pressed" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/RotationPlayButton" to="." method="_on_rotation_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/RotationReverseButton" to="." method="_on_rotation_reverse_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer/RotationSpeedSpinBox" to="." method="_on_rotation_speed_spin_box_value_changed"]
-[connection signal="value_changed" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer/RotationToSpinBox" to="." method="_on_rotation_to_spin_box_value_changed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer/RotationFromSpinBox" to="." method="_on_rotation_from_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer/RotationToSpinBox" to="." method="_on_rotation_to_spin_box_value_changed"]
 [connection signal="item_selected" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer/RotationPivotOptionButton" to="." method="_on_rotation_pivot_option_button_item_selected"]
 [connection signal="color_changed" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer/GridContainer/RotationBackgroundColorPickerButton" to="." method="_on_rotation_background_color_picker_button_color_changed"]
 [connection signal="item_selected" from="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/CenterContainer2/GridContainer/RotationTransTypeOptionButton" to="." method="_on_rotation_trans_type_option_button_item_selected"]

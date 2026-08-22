@@ -14,7 +14,7 @@ enum Axis
 }
 
 @export var slide_speed: float = 1.0
-@export var slide_axis: Axis = Axis.VERTICAL  ## Direction of size animation. VERTICAL = slides down/up, HORIZONTAL = slides left/right.
+@export var slide_axis: Axis = Axis.HORIZONTAL  ## Direction of size animation. VERTICAL = slides down/up, HORIZONTAL = slides left/right.
 @export var slide_open_direction: OpenDirection = OpenDirection.POSITIVE  ## Which way the panel slides. POSITIVE = down/right, NEGATIVE = up/left.
 @export var slide_panel_width: float = 400.0  ## Width in pixels for horizontal slide animations.
 
@@ -126,3 +126,8 @@ func _create_close_tween() -> void:
 	main_tween.set_parallel(false)
 	main_tween.set_ease(slide_ease_type_close)
 	main_tween.set_trans(slide_transition_type)
+	
+	
+func _ready() -> void:
+	clip_contents = true
+	super()

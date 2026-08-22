@@ -116,6 +116,14 @@ max_value = 2.0
 step = 0.1
 value = 0.5
 
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=19441494]
+layout_mode = 2
+text = "Duration"
+
+[node name="ShimmerDurationSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=751198767]
+layout_mode = 2
+step = 0.01
+
 [node name="Label5" type="Label" parent="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1953202605]
 layout_mode = 2
 text = "Background Color:"
@@ -297,6 +305,14 @@ max_value = 1.0
 step = 0.1
 value = 0.3
 
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2070488875]
+layout_mode = 2
+text = "Duration"
+
+[node name="FlickerDurationSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2146362609]
+layout_mode = 2
+step = 0.01
+
 [node name="Label10" type="Label" parent="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=66345762]
 layout_mode = 2
 text = "Background Color:"
@@ -378,6 +394,14 @@ max_value = 1.0
 step = 0.1
 value = 0.2
 
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1422234427]
+layout_mode = 2
+text = "Duration:"
+
+[node name="PulseDurationSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1039554640]
+layout_mode = 2
+step = 0.01
+
 [node name="Label13" type="Label" parent="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1121416680]
 layout_mode = 2
 text = "Background Color:"
@@ -448,6 +472,13 @@ max_value = 10.0
 step = 0.1
 value = 1.0
 
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1133317441]
+layout_mode = 2
+text = "Duration:"
+
+[node name="HueShiftDurationSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=94182427]
+layout_mode = 2
+
 [node name="Label15" type="Label" parent="CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1040750373]
 layout_mode = 2
 text = "Background Color:"
@@ -462,6 +493,7 @@ color = Color(1, 1, 1, 1)
 [connection signal="value_changed" from="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerSpeedSpinBox" to="." method="_on_shimmer_speed_spin_box_value_changed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerWidthSpinBox" to="." method="_on_shimmer_width_spin_box_value_changed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerBrightnessSpinBox" to="." method="_on_shimmer_brightness_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerDurationSpinBox" to="." method="_on_shimmer_duration_spin_box_value_changed"]
 [connection signal="color_changed" from="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerBackgroundColorPickerButton" to="." method="_on_shimmer_background_color_picker_button_color_changed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveStartButton" to="." method="_on_dissolve_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveStopButton" to="." method="_on_dissolve_stop_button_pressed"]
@@ -474,13 +506,16 @@ color = Color(1, 1, 1, 1)
 [connection signal="pressed" from="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/FlickerStopButton" to="." method="_on_flicker_stop_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer/FlickerSpeedSpinBox" to="." method="_on_flicker_speed_spin_box_value_changed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer/FlickerMinAlphaSpinBox" to="." method="_on_flicker_min_alpha_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer/FlickerDurationSpinBox" to="." method="_on_flicker_duration_spin_box_value_changed"]
 [connection signal="color_changed" from="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer/FlickerBackgroundColorPickerButton" to="." method="_on_flicker_background_color_picker_button_color_changed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PulseStartButton" to="." method="_on_pulse_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PulseStopButton" to="." method="_on_pulse_stop_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer/PulseSpeedSpinBox" to="." method="_on_pulse_speed_spin_box_value_changed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer/PulseMinAlphaSpinBox" to="." method="_on_pulse_min_alpha_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer/PulseDurationSpinBox" to="." method="_on_pulse_duration_spin_box_value_changed"]
 [connection signal="color_changed" from="CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer/PulseBackgroundColorPickerButton" to="." method="_on_pulse_background_color_picker_button_color_changed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HueShiftStartButton" to="." method="_on_hue_shift_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HueShiftStopButton" to="." method="_on_hue_shift_stop_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HueShiftSpeedSpinBox" to="." method="_on_hue_shift_speed_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HueShiftDurationSpinBox" to="." method="_on_hue_shift_duration_spin_box_value_changed"]
 [connection signal="color_changed" from="CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HueShiftBackgroundColorPickerButton" to="." method="_on_hue_shift_background_color_picker_button_color_changed"]

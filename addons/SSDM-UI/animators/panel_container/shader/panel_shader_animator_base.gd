@@ -35,6 +35,16 @@ func _apply_shader() -> void:
 	material = shader_material
 	
 	
+func _create_timeout_timer(duration: float) -> void:
+	if duration > 0.0:
+		var timer: Timer = Timer.new()	
+		timer.one_shot = true
+		timer.wait_time = duration
+		timer.timeout.connect(kill)
+		add_child(timer)
+		timer.start()
+	
+	
 func _ready() -> void:
 	_apply_shader()
 	_init_shader_paramaters()

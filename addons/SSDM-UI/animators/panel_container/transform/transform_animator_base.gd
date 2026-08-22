@@ -70,8 +70,8 @@ func reverse() -> void:
 	_init_tween_reverse()
 	_create_close_tween()
 	await _tween_reverse()
-	
-
+		
+		
 ## Calculates the pivot offset based on preset.[br][br]
 func _get_pivot_offset(node: Control, preset: RotationPivot) -> Vector2:
 	match preset:
@@ -98,6 +98,7 @@ func _get_pivot_offset(node: Control, preset: RotationPivot) -> Vector2:
 	
 func _ready() -> void:
 	if content:
-		panel_container.add_child(content)
+		await content.get_tree().process_frame
+		content.reparent(panel_container)
 		
 	set_background_color(background_color)

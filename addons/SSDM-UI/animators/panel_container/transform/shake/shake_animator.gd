@@ -7,6 +7,7 @@ signal finished
 @export var shake_amount: float = 3.0  ## Maximum shake distance in pixels. Typical range: 2-10 pixels.
 @export var background_color: Color = Color(1,1,1,1)
 @export_group("Controls")
+@export var content: Control
 @export var panel_container: PanelContainer
 
 
@@ -34,4 +35,8 @@ func play() -> void:
 	
 	
 func _ready() -> void:
+	if content:
+		await get_tree().process_frame
+		content.reparent(panel_container)
+		
 	set_background_color(background_color)
