@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bs8epck18urtb"]
+
+[ext_resource type="Shader" uid="uid://pkcppswl70jo" path="res://addons/SSDM-UI/animators/panel_container/shader/fade/fade_shader.gdshader" id="1_r2kte"]
+
+[resource]
+shader = ExtResource("1_r2kte")
+shader_parameter/bg_color = Color(1, 1, 1, 1)

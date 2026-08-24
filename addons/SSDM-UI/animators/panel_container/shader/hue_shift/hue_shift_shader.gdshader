@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform float shader_enabled : hint_range(0.0, 1.0) = 0.0;
 uniform vec4 bg_color : source_color = vec4(1.0);
-uniform float hue_shift_speed : hint_range(0.0, 10.0) = 1.0;
+uniform float speed : hint_range(0.0, 10.0) = 1.0;
 
 
 vec3 hsv_to_rgb(vec3 c) {
@@ -26,7 +26,7 @@ void fragment() {
 
 	if (shader_enabled > 0.5 && color.a > 0.01) {
 		vec3 hsv = rgb_to_hsv(color.rgb);
-		hsv.x = fract(hsv.x + TIME * hue_shift_speed);
+		hsv.x = fract(hsv.x + TIME * speed);
 		color.rgb = hsv_to_rgb(hsv);
 	}
 
