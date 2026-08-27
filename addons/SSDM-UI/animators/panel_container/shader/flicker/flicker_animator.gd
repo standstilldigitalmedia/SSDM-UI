@@ -9,5 +9,6 @@ func set_min_alpha(new_min: float) -> void:
 	
 	
 func _init_shader_paramaters() -> void:
-	set_min_alpha(min_alpha)
 	super()
+	set_min_alpha(min_alpha)
+	set_speed(10.0)

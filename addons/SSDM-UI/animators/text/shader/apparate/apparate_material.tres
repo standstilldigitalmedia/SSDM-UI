@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d1rkuvylwhqvn"]
+
+[ext_resource type="Shader" uid="uid://bw4dtsw2k5q7f" path="res://addons/SSDM-UI/animators/text/shader/apparate/apparate_shader.gdshader" id="1_o5h77"]
+
+[resource]
+shader = ExtResource("1_o5h77")

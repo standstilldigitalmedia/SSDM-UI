@@ -6,6 +6,9 @@ const SHADER_PARAMETER: String = "shader_parameter/"
 const SHADER_ENABLED: String = "shader_enabled"
 const SHADER_SPEED: String = "speed"
 const MIN_ALPHA: String = "min_alpha"
+const ALPHA: String = "alpha"
+const PROGRESS: String = "progress"
+
 
 @export var speed: float = 1.0  
 @export var duration: float = 0.0 
@@ -14,10 +17,6 @@ const MIN_ALPHA: String = "min_alpha"
 
 func set_speed(new_speed: float) -> void:
 	shader_material.set_shader_parameter(SHADER_SPEED, new_speed)
-	
-	
-func set_duration(new_duration: float) -> void:
-	duration = new_duration
 	
 	
 func set_background_color(new_background_color: Color) -> void:

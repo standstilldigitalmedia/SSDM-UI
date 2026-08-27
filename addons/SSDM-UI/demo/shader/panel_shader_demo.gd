@@ -1,6 +1,7 @@
 extends PanelContainer
 
 @export var dissolve_animator: SSDMUIControlDissolveAnimator
+@export var color_animator: SSDMUIControlColorAnimator
 @export var flicker_animator: SSDMUIControlFlickerAnimator
 @export var hue_shift_animator: SSDMUIControlHueShiftAnimator
 @export var pulse_animator: SSDMUIControlPulseAnimator
@@ -129,3 +130,28 @@ func _on_shimmer_duration_spin_box_value_changed(value: float) -> void:
 
 func _on_shimmer_background_color_picker_button_color_changed(color: Color) -> void:
 	shimmer_animator.set_background_color(color)
+
+
+func _on_color_start_button_pressed() -> void:
+	color_animator.play()
+
+
+func _on_color_stop_button_pressed() -> void:
+	color_animator.kill()
+
+
+func _on_color_reverse_button_pressed() -> void:
+	color_animator.reverse()
+
+
+func _on_color_speed_spin_box_value_changed(value: float) -> void:
+	color_animator.set_speed(value)
+
+
+func _on_color_to_picker_button_color_changed(color: Color) -> void:
+	color_animator.to_color = color
+
+
+func _on_color_background_color_picker_button_color_changed(color: Color) -> void:
+	color_animator.background_color = color
+	color_animator.set_background_color(color)

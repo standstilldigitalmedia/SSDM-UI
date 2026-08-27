@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://443y62l02kg4"]
+
+[ext_resource type="Shader" uid="uid://bsgwqs6chimr6" path="res://addons/SSDM-UI/animators/text/shader/crawl/crawl_shader.gdshader" id="1_myung"]
+
+[resource]
+shader = ExtResource("1_myung")

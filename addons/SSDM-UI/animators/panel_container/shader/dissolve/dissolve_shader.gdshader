@@ -14,20 +14,24 @@ void fragment() {
 	vec4 color = bg_color;
 
 	if (shader_enabled > 0.5) {
-		float threshold = 0.0;
-		if (mode < 0.5) {
-			// UV_SWEEP: left-to-right
-			threshold = UV.x;
-		} else if (mode < 1.5) {
-			// NOISE: pseudo-random threshold per pixel
-			float t = floor(TIME);
-			threshold = random(UV + vec2(t, 0.0));
+		if (progress > 0.99) {
+			color.a = 1.0;
 		} else {
-			// RADIAL: distance from center
-			threshold = length(UV - vec2(0.5, 0.5)) * 2.0;
+			float threshold = 0.0;
+			if (mode < 0.5) {
+				// UV_SWEEP: left-to-right
+				threshold = UV.x;
+			} else if (mode < 1.5) {
+				// NOISE: pseudo-random threshold per pixel
+				float t = floor(TIME);
+				threshold = random(UV + vec2(t, 0.0));
+			} else {
+				// RADIAL: distance from center
+				threshold = length(UV - vec2(0.5, 0.5)) * 2.0;
+			}
+			float edge = smoothstep(progress - spread, progress, threshold);
+			color.a *= 1.0 - edge;
 		}
-		float edge = smoothstep(progress - spread, progress, threshold);
-		color.a *= 1.0 - edge;
 	}
 	COLOR = color;
 }

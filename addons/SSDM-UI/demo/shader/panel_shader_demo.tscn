@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cb8dnjxkvepiu"]
 
-[ext_resource type="Script" uid="uid://ca4iksnw4so8u" path="res://addons/SSDM-UI/demo/panel_container_shader/panel_shader_demo.gd" id="1_maogs"]
+[ext_resource type="Script" uid="uid://ca4iksnw4so8u" path="res://addons/SSDM-UI/demo/shader/panel_shader_demo.gd" id="1_maogs"]
 [ext_resource type="PackedScene" uid="uid://b0yn1nr3x2yly" path="res://addons/SSDM-UI/animators/panel_container/shader/dissolve/dissolve_scene.tscn" id="2_dh11m"]
 [ext_resource type="PackedScene" uid="uid://cr5r2yivcegi7" path="res://addons/SSDM-UI/animators/panel_container/shader/flicker/flicker_scene.tscn" id="3_bxjtk"]
+[ext_resource type="PackedScene" uid="uid://cs5man6x1mtea" path="res://addons/SSDM-UI/animators/panel_container/shader/color/color_scene.tscn" id="3_mrven"]
 [ext_resource type="PackedScene" uid="uid://dsg4q34ijg3o8" path="res://addons/SSDM-UI/animators/panel_container/shader/hue_shift/hue_shift_scene.tscn" id="4_mrven"]
 [ext_resource type="PackedScene" uid="uid://vqa57c56luou" path="res://addons/SSDM-UI/animators/panel_container/shader/pulse/pulse_scene.tscn" id="5_re72b"]
 [ext_resource type="PackedScene" uid="uid://dqs056cmirmi8" path="res://addons/SSDM-UI/animators/panel_container/shader/shimmer/shimmer_scene.tscn" id="6_7eno4"]
@@ -12,7 +13,7 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htm0m"]
 
-[node name="PanelShaderDemo" type="PanelContainer" unique_id=808943060 node_paths=PackedStringArray("dissolve_animator", "flicker_animator", "hue_shift_animator", "pulse_animator", "shimmer_animator")]
+[node name="PanelShaderDemo" type="PanelContainer" unique_id=808943060 node_paths=PackedStringArray("dissolve_animator", "color_animator", "flicker_animator", "hue_shift_animator", "pulse_animator", "shimmer_animator")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,6 +22,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kwyuu")
 script = ExtResource("1_maogs")
 dissolve_animator = NodePath("CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/DissolveScene")
+color_animator = NodePath("CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/ColorScene")
 flicker_animator = NodePath("CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/VBoxContainer/FlickerScene")
 hue_shift_animator = NodePath("CenterContainer/GridContainer/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HueShiftScene")
 pulse_animator = NodePath("CenterContainer/GridContainer/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/PulseScene")
@@ -124,7 +126,7 @@ text = "Spread:"
 [node name="DissolveSpreadSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=393853354]
 layout_mode = 2
 max_value = 1.0
-step = 0.1
+step = 0.01
 value = 0.1
 
 [node name="Label7" type="Label" parent="CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=83205168]
@@ -132,107 +134,6 @@ layout_mode = 2
 text = "Background Color:"
 
 [node name="DissolveBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1678582086]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(1, 1, 1, 1)
-
-[node name="Fade" type="PanelContainer" parent="CenterContainer/GridContainer" unique_id=1734128143]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
-
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/GridContainer/Fade" unique_id=708928896]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Fade/MarginContainer" unique_id=1881202732]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer" unique_id=1953252350]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2037106008]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Fade"
-horizontal_alignment = 1
-
-[node name="DissolveScene" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1582687259 instance=ExtResource("2_dh11m")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1412901643]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="DissolveStartButton" type="Button" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1188709557]
-layout_mode = 2
-text = "Start"
-
-[node name="DissolveStopButton" type="Button" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=429916101]
-layout_mode = 2
-text = "Stop"
-
-[node name="DissolveReverseButton" type="Button" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2072792833]
-layout_mode = 2
-text = "Reverse"
-
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer" unique_id=1334717368]
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer" unique_id=1920303776]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/v_separation = 10
-columns = 2
-
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1379701388]
-layout_mode = 2
-text = "Speed:"
-
-[node name="DissolveSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=168357033]
-layout_mode = 2
-min_value = 0.01
-max_value = 10.0
-step = 0.1
-value = 1.01
-
-[node name="Label5" type="Label" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1662605023]
-layout_mode = 2
-text = "Mode:"
-
-[node name="DissolveModeOptionButton" type="OptionButton" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=605094235]
-layout_mode = 2
-selected = 1
-item_count = 3
-popup/item_0/text = "UV Sweep"
-popup/item_0/id = 0
-popup/item_1/text = "Noise"
-popup/item_1/id = 1
-popup/item_2/text = "Radial"
-popup/item_2/id = 2
-
-[node name="Label6" type="Label" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1236705294]
-layout_mode = 2
-text = "Spread:"
-
-[node name="DissolveSpreadSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1622343158]
-layout_mode = 2
-max_value = 1.0
-step = 0.1
-value = 0.1
-
-[node name="Label7" type="Label" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2118618280]
-layout_mode = 2
-text = "Background Color:"
-
-[node name="DissolveBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1133413203]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(1, 1, 1, 1)
@@ -262,8 +163,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Color"
 horizontal_alignment = 1
 
-[node name="DissolveScene" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1936468482 instance=ExtResource("2_dh11m")]
-custom_minimum_size = Vector2(100, 100)
+[node name="ColorScene" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=22623759 instance=ExtResource("3_mrven")]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1204854610]
@@ -272,15 +173,15 @@ size_flags_vertical = 8
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="DissolveStartButton" type="Button" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=135868091]
+[node name="ColorStartButton" type="Button" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=135868091]
 layout_mode = 2
 text = "Start"
 
-[node name="DissolveStopButton" type="Button" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=519487458]
+[node name="ColorStopButton" type="Button" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=519487458]
 layout_mode = 2
 text = "Stop"
 
-[node name="DissolveReverseButton" type="Button" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2038527559]
+[node name="ColorReverseButton" type="Button" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2038527559]
 layout_mode = 2
 text = "Reverse"
 
@@ -297,7 +198,7 @@ columns = 2
 layout_mode = 2
 text = "Speed:"
 
-[node name="DissolveSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1102576797]
+[node name="ColorSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1102576797]
 layout_mode = 2
 min_value = 0.01
 max_value = 10.0
@@ -306,34 +207,16 @@ value = 1.01
 
 [node name="Label5" type="Label" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1245359033]
 layout_mode = 2
-text = "Mode:"
+text = "To color:"
 
-[node name="DissolveModeOptionButton" type="OptionButton" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1870811042]
+[node name="ColorToPickerButton" type="ColorPickerButton" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1152267790]
 layout_mode = 2
-selected = 1
-item_count = 3
-popup/item_0/text = "UV Sweep"
-popup/item_0/id = 0
-popup/item_1/text = "Noise"
-popup/item_1/id = 1
-popup/item_2/text = "Radial"
-popup/item_2/id = 2
-
-[node name="Label6" type="Label" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1433637971]
-layout_mode = 2
-text = "Spread:"
-
-[node name="DissolveSpreadSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=538510097]
-layout_mode = 2
-max_value = 1.0
-step = 0.1
-value = 0.1
 
 [node name="Label7" type="Label" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1617200006]
 layout_mode = 2
 text = "Background Color:"
 
-[node name="DissolveBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1341099203]
+[node name="ColorBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1341099203]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(1, 1, 1, 1)
@@ -494,7 +377,7 @@ text = "Speed:"
 [node name="FlickerSpeedSpinBox" type="SpinBox" parent="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1087955318]
 layout_mode = 2
 max_value = 60.0
-step = 0.1
+step = 0.01
 value = 10.0
 
 [node name="Label9" type="Label" parent="CenterContainer/GridContainer/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1996944244]
@@ -697,20 +580,12 @@ color = Color(1, 1, 1, 1)
 [connection signal="item_selected" from="CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveModeOptionButton" to="." method="_on_dissolve_mode_option_button_item_selected"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveSpreadSpinBox" to="." method="_on_dissolve_spread_spin_box_value_changed"]
 [connection signal="color_changed" from="CenterContainer/GridContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveBackgroundColorPickerButton" to="." method="_on_dissolve_background_color_picker_button_color_changed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveStartButton" to="." method="_on_dissolve_start_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveStopButton" to="." method="_on_dissolve_stop_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveReverseButton" to="." method="_on_dissolve_reverse_button_pressed"]
-[connection signal="value_changed" from="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveSpeedSpinBox" to="." method="_on_dissolve_speed_spin_box_value_changed"]
-[connection signal="item_selected" from="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveModeOptionButton" to="." method="_on_dissolve_mode_option_button_item_selected"]
-[connection signal="value_changed" from="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveSpreadSpinBox" to="." method="_on_dissolve_spread_spin_box_value_changed"]
-[connection signal="color_changed" from="CenterContainer/GridContainer/Fade/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveBackgroundColorPickerButton" to="." method="_on_dissolve_background_color_picker_button_color_changed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveStartButton" to="." method="_on_dissolve_start_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveStopButton" to="." method="_on_dissolve_stop_button_pressed"]
-[connection signal="pressed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveReverseButton" to="." method="_on_dissolve_reverse_button_pressed"]
-[connection signal="value_changed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveSpeedSpinBox" to="." method="_on_dissolve_speed_spin_box_value_changed"]
-[connection signal="item_selected" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveModeOptionButton" to="." method="_on_dissolve_mode_option_button_item_selected"]
-[connection signal="value_changed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveSpreadSpinBox" to="." method="_on_dissolve_spread_spin_box_value_changed"]
-[connection signal="color_changed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveBackgroundColorPickerButton" to="." method="_on_dissolve_background_color_picker_button_color_changed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ColorStartButton" to="." method="_on_color_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ColorStopButton" to="." method="_on_color_stop_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ColorReverseButton" to="." method="_on_color_reverse_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ColorSpeedSpinBox" to="." method="_on_color_speed_spin_box_value_changed"]
+[connection signal="color_changed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ColorToPickerButton" to="." method="_on_color_to_picker_button_color_changed"]
+[connection signal="color_changed" from="CenterContainer/GridContainer/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ColorBackgroundColorPickerButton" to="." method="_on_color_background_color_picker_button_color_changed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ShimmerStartButton" to="." method="_on_shimmer_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ShimmerStopButton" to="." method="_on_shimmer_stop_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/GridContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerSpeedSpinBox" to="." method="_on_shimmer_speed_spin_box_value_changed"]

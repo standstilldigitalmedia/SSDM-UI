@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c86m1s2tvmtfd"]
 
-[ext_resource type="Script" uid="uid://pwj10dqdtog8" path="res://addons/SSDM-UI/demo/panel_container_transform/panel_transform_demo.gd" id="1_abom5"]
+[ext_resource type="Script" uid="uid://pwj10dqdtog8" path="res://addons/SSDM-UI/demo/transform/panel_transform_demo.gd" id="1_abom5"]
 [ext_resource type="PackedScene" uid="uid://c7y1a735h3d3d" path="res://addons/SSDM-UI/animators/panel_container/transform/position/position_scene.tscn" id="2_abrvf"]
 [ext_resource type="PackedScene" uid="uid://co24raluoil47" path="res://addons/SSDM-UI/animators/panel_container/transform/rotate/rotate_scene.tscn" id="3_abrvf"]
 [ext_resource type="PackedScene" uid="uid://bi6wysqbifv7s" path="res://addons/SSDM-UI/animators/panel_container/transform/scale/scale_scene.tscn" id="4_p6c7l"]

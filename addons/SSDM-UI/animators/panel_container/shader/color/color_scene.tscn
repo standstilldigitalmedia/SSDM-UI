@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cs5man6x1mtea"]
+
+[ext_resource type="Script" uid="uid://bksat3a47uxt6" path="res://addons/SSDM-UI/animators/panel_container/shader/color/color_animator.gd" id="1_u7a0j"]
+[ext_resource type="Material" uid="uid://6bhvqp7enc13" path="res://addons/SSDM-UI/animators/panel_container/shader/color/color_material.tres" id="2_t0cg8"]
+
+[node name="ColorScene" type="PanelContainer" unique_id=22623759]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_u7a0j")
+shader_material = ExtResource("2_t0cg8")
