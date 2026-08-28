@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b1i6ijf0wi5cg"]
+
+[ext_resource type="Script" uid="uid://ctmqi2u2toxgd" path="res://addons/SSDM-UI/animators/text/shader/wave/wave_animator.gd" id="1_fm4y1"]
+[ext_resource type="Material" uid="uid://cit57oj2y1yb3" path="res://addons/SSDM-UI/animators/text/shader/wave/wave_material.tres" id="2_leij0"]
+
+[node name="WaveScene" type="RichTextLabel" unique_id=1205400862]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "That path is for your steps alone"
+script = ExtResource("1_fm4y1")
+shader_material = ExtResource("2_leij0")
