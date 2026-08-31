@@ -1,38 +1,37 @@
 class_name SSDMUITextCrawlAnimator
-extends Control
+extends SSDMUISingleControlTweenedShaderAnimatorBase
 
 const SIZE: String = "size"
 const SET_FIT_CONTENT: String = "set_fit_content"
 const FIT_CONTENT: String = "fit_content"
-const CRAWL_FADE_PIXELS: String = "fade_pixels"
-const CRAWL_LABEL_POSITION_Y: String = "label_position_y"
+const FADE_PIXELS: String = "fade_pixels"
+const LABEL_POSITION_Y: String = "label_position_y"
 const POSITION_Y: String = "position:y"
-const CRAWL_VIEWPORT: String = "CrawlViewport"
 const FALLBACK_CONTENT_HEIGHT: float = 100.0
 
 @export_multiline var label_text: String
-@export var speed: float = 75.0
 @export var viewport_width: float = 200.0
 @export var viewport_height: float = 200.0
 @export var fade_height: float = 2.0
-@export var shader_material: ShaderMaterial
 
 @export_group("Controls")
-@export var crawl_viewport: Control  
+@export var viewport: Control  
 @export var text_label: RichTextLabel
 
 var _target_visible_chars: int = 0
-var _main_tween: Tween
 var _content_height: float = FALLBACK_CONTENT_HEIGHT
 var _duration: float = 0.0
 var _fade_pixels = viewport_height * fade_height
 
 
 func _get_content_height() -> float:
-	if text_label.get_content_height() <= 0:
-		return text_label.size.y
-	push_warning("SSDM-UI: crawl effect - using fallback content height")
-	return FALLBACK_CONTENT_HEIGHT
+	var content_height = text_label.get_content_height()
+	if content_height <= 0:
+		content_height = text_label.size.y
+	if content_height <= 0:
+		content_height = FALLBACK_CONTENT_HEIGHT
+		push_warning("SSDM-UI: crawl effect - using fallback content height")
+	return content_height
 		
 	
 func _apply_shader() -> void:
@@ -48,15 +47,15 @@ func _setup_text_label() -> void:
 	
 	
 func _setup_viewport() -> void:
-	crawl_viewport.clip_contents = true
-	crawl_viewport.custom_minimum_size.y = viewport_height
-	crawl_viewport.custom_minimum_size.x = viewport_width
-	crawl_viewport.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	viewport.clip_contents = true
+	viewport.custom_minimum_size.y = viewport_height
+	viewport.custom_minimum_size.x = viewport_width
+	viewport.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	# 0 = shrink to beginning (default when SIZE_SHRINK_CENTER and SIZE_SHRINK_END not set)
-	crawl_viewport.size_flags_vertical = 0
+	viewport.size_flags_vertical = 0
 	# Force size to not exceed minimum (prevent expansion)
-	crawl_viewport.set_deferred(SIZE, Vector2(0, viewport_height))
-	crawl_viewport.size_flags_horizontal = text_label.size_flags_horizontal
+	viewport.set_deferred(SIZE, Vector2(0, viewport_height))
+	viewport.size_flags_horizontal = text_label.size_flags_horizontal
 	
 	
 func _setup_label_anchors() -> void:
@@ -74,10 +73,9 @@ func _setup_label_offsets() -> void:
 	
 	
 func _setup_shader_paramaters() -> void:
-	if shader_material and _fade_pixels > 0.0:
-		shader_material.set_shader_parameter(SSDMUISingleControlShaderAnimatorBase.SHADER_ENABLED, 1.0)
-		shader_material.set_shader_parameter(CRAWL_FADE_PIXELS, _fade_pixels)
-		shader_material.set_shader_parameter(CRAWL_LABEL_POSITION_Y, viewport_height)
+	shader_material.set_shader_parameter(SSDMUISingleControlShaderAnimatorBase.SHADER_ENABLED, 1.0)
+	shader_material.set_shader_parameter(FADE_PIXELS, _fade_pixels)
+	shader_material.set_shader_parameter(LABEL_POSITION_Y, viewport_height)
 	
 
 func _setup_main_tween() -> void:
@@ -122,13 +120,22 @@ func _tween_shader_paramater() -> void:
 	if shader_material and _fade_pixels > 0.0:
 		_main_tween.tween_property(
 			shader_material,
-			SSDMUISingleControlShaderAnimatorBase.SHADER_PARAMETER + CRAWL_LABEL_POSITION_Y,
+			SSDMUISingleControlShaderAnimatorBase.SHADER_PARAMETER + LABEL_POSITION_Y,
 			-_content_height,
 			_duration
 		)	
 		
 		
+func _tween_forward() -> void:
+	_tween_label_position()
+	_tween_shader_paramater()
+	
+	
+func _tween_reverse() -> void:
+	pass	
+		
 func setup_crawl_effect() -> void:
+	_set_parallel = true
 	_setup_text_label()
 	_apply_shader()
 	_kill_tween()

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://b216dlylfgyq0"]
 
-[ext_resource type="Shader" uid="uid://bwjuvinorev6" path="res://addons/SSDM-UI/animators/panel_container/shader/dissolve/dissolve_shader.gdshader" id="1_p4d2w"]
+[ext_resource type="Shader" uid="uid://bwjuvinorev6" path="res://addons/SSDM-UI/animators/panel_container/tweened_shader/dissolve/dissolve_shader.gdshader" id="1_p4d2w"]
 
 [resource]
 shader = ExtResource("1_p4d2w")

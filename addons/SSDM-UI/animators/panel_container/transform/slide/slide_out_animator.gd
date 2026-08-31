@@ -1,6 +1,9 @@
 class_name SSDMUIControlSlideOutAnimator
 extends SSDMUISingleControlTransformAnimatorBase
 
+const TRANSFORM_X_PROPERTY: String = "custom_minimum_size:x"
+const TRANSFORM_Y_PROPERTY: String = "custom_minimum_size:y"
+
 enum OpenDirection 
 {
 	POSITIVE,    ## Slide in the positive direction. For VERTICAL = downward, for HORIZONTAL = rightward.
@@ -15,11 +18,11 @@ enum Axis
 
 @export var axis: Axis = Axis.HORIZONTAL  ## Direction of size animation. VERTICAL = slides down/up, HORIZONTAL = slides left/right.
 @export var open_direction: OpenDirection = OpenDirection.POSITIVE  ## Which way the panel slides. POSITIVE = down/right, NEGATIVE = up/left.
-@export var panel_width: float = 400.0  ## Width in pixels for horizontal slide animations.
+@export var panel_width: float = 200.0  ## Width in pixels for horizontal slide animations.
 
-var property_name: String
-var target_size: float
-var current_size: float
+var _property_name: String
+var _target_size: float
+var _current_size: float
 
 
 func set_axis(new_slide_axis: Axis) -> void:
@@ -36,8 +39,8 @@ func set_panel_width(new_panel_width: float) -> void:
 	
 func _init_tween_forward() -> void:
 	if axis == Axis.VERTICAL:
-		property_name = Y_PROPERTY
-		target_size = panel_container.get_combined_minimum_size().y
+		_property_name = TRANSFORM_Y_PROPERTY
+		_target_size = panel_container.get_combined_minimum_size().y
 		if open_direction == OpenDirection.POSITIVE:
 			size_flags_vertical = 0
 			panel_container.grow_vertical = Control.GROW_DIRECTION_BEGIN
@@ -46,8 +49,8 @@ func _init_tween_forward() -> void:
 			panel_container.grow_vertical = Control.GROW_DIRECTION_END
 		custom_minimum_size.y = 0
 	else:
-		property_name = X_PROPERTY
-		target_size = panel_width
+		_property_name = TRANSFORM_X_PROPERTY
+		_target_size = panel_width
 		custom_minimum_size.x = panel_width
 		size_flags_vertical = Control.SIZE_EXPAND_FILL
 		panel_container.grow_vertical = Control.GROW_DIRECTION_BEGIN
@@ -61,7 +64,7 @@ func _init_tween_forward() -> void:
 	await get_tree().process_frame
 	
 	if axis == Axis.VERTICAL:
-		target_size = panel_container.get_combined_minimum_size().y
+		_target_size = panel_container.get_combined_minimum_size().y
 	else:
 		var panel_height = panel_container.get_combined_minimum_size().y
 		custom_minimum_size.y = panel_height
@@ -70,25 +73,27 @@ func _init_tween_forward() -> void:
 	
 func _init_tween_reverse() -> void:
 	if axis == Axis.VERTICAL:
-		property_name = Y_PROPERTY
-		current_size = custom_minimum_size.y if custom_minimum_size.y > 0 else size.y
+		_property_name = TRANSFORM_Y_PROPERTY
+		_current_size = custom_minimum_size.y if custom_minimum_size.y > 0 else size.y
 		size_flags_vertical = 0 if open_direction == OpenDirection.POSITIVE else Control.SIZE_SHRINK_END
 	else:
-		property_name = X_PROPERTY
-		current_size = custom_minimum_size.x if custom_minimum_size.x > 0 else size.x
+		_property_name = TRANSFORM_X_PROPERTY
+		_current_size = custom_minimum_size.x if custom_minimum_size.x > 0 else size.x
 		size_flags_vertical = Control.SIZE_EXPAND_FILL
 		size_flags_horizontal = 0 if open_direction == OpenDirection.POSITIVE else Control.SIZE_SHRINK_END
 		
 
 func _tween_forward() -> void:
-	main_tween.tween_property(self, property_name, target_size, speed).from(0)
-	await main_tween.finished
+	_init_tween_forward()
+	_main_tween.tween_property(self, _property_name, _target_size, speed).from(0)
+	await _main_tween.finished
 	finished.emit()
 	
 	
 func _tween_reverse() -> void:
-	main_tween.tween_property(self, property_name, 0, speed).from(current_size)
-	await main_tween.finished
+	_init_tween_reverse()
+	_main_tween.tween_property(self, _property_name, 0, speed).from(_current_size)
+	await _main_tween.finished
 	finished.emit()
 	
 	

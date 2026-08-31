@@ -1,7 +1,7 @@
 class_name SSDMUIControlFlickerAnimator
 extends SSDMUISingleControlShaderAnimatorBase
 
-@export var min_alpha: float = 0.3 	
+@export var min_alpha: float = 0.3 ## The minimum amount the alpha channel will be reduced to	
 	
 	
 func set_min_alpha(new_min: float) -> void:

@@ -13,7 +13,7 @@ func _on_dissolve_start_button_pressed() -> void:
 
 
 func _on_dissolve_stop_button_pressed() -> void:
-	dissolve_animator.kill()
+	dissolve_animator.kill_tween()
 	
 	
 func _on_dissolve_reverse_button_pressed() -> void:
@@ -34,6 +34,18 @@ func _on_dissolve_spread_spin_box_value_changed(value: float) -> void:
 	
 func _on_dissolve_background_color_picker_button_color_changed(color: Color) -> void:
 	dissolve_animator.set_background_color(color)
+	
+	
+func _on_dissolve_trans_type_option_button_item_selected(index: int) -> void:
+	dissolve_animator.set_transition_type(index)
+
+
+func _on_dissolve_play_ease_type_option_button_item_selected(index: int) -> void:
+	dissolve_animator.set_play_ease_type(index)
+
+
+func _on_dissolve_reverse_ease_type_option_button_item_selected(index: int) -> void:
+	dissolve_animator.set_reverse_ease_type(index)
 
 
 func _on_flicker_start_button_pressed() -> void:
@@ -41,7 +53,7 @@ func _on_flicker_start_button_pressed() -> void:
 
 
 func _on_flicker_stop_button_pressed() -> void:
-	flicker_animator.kill()
+	flicker_animator.stop()
 	
 	
 func _on_flicker_speed_spin_box_value_changed(value: float) -> void:
@@ -65,7 +77,7 @@ func _on_hue_shift_start_button_pressed() -> void:
 
 
 func _on_hue_shift_stop_button_pressed() -> void:
-	hue_shift_animator.kill()
+	hue_shift_animator.stop()
 	
 
 func _on_hue_shift_speed_spin_box_value_changed(value: float) -> void:
@@ -85,7 +97,7 @@ func _on_pulse_start_button_pressed() -> void:
 
 
 func _on_pulse_stop_button_pressed() -> void:
-	pulse_animator.kill()
+	pulse_animator.stop()
 	
 	
 func _on_pulse_speed_spin_box_value_changed(value: float) -> void:
@@ -109,7 +121,7 @@ func _on_shimmer_start_button_pressed() -> void:
 
 
 func _on_shimmer_stop_button_pressed() -> void:
-	shimmer_animator.kill()
+	shimmer_animator.stop()
 
 
 func _on_shimmer_speed_spin_box_value_changed(value: float) -> void:
@@ -121,7 +133,7 @@ func _on_shimmer_width_spin_box_value_changed(value: float) -> void:
 
 
 func _on_shimmer_brightness_spin_box_value_changed(value: float) -> void:
-	shimmer_animator.set_brighness(value)
+	shimmer_animator.set_brightness(value)
 
 
 func _on_shimmer_duration_spin_box_value_changed(value: float) -> void:
@@ -137,7 +149,8 @@ func _on_color_start_button_pressed() -> void:
 
 
 func _on_color_stop_button_pressed() -> void:
-	color_animator.kill()
+	color_animator.kill_tween()
+	color_animator.set_background_color(color_animator.background_color)
 
 
 func _on_color_reverse_button_pressed() -> void:
@@ -155,3 +168,15 @@ func _on_color_to_picker_button_color_changed(color: Color) -> void:
 func _on_color_background_color_picker_button_color_changed(color: Color) -> void:
 	color_animator.background_color = color
 	color_animator.set_background_color(color)
+	
+	
+func _on_color_trans_type_option_button_item_selected(index: int) -> void:
+	color_animator.set_transition_type(index)
+
+
+func _on_color_play_ease_type_option_button_item_selected(index: int) -> void:
+	color_animator.set_play_ease_type(index)
+
+
+func _on_color_reverse_ease_type_option_button_item_selected(index: int) -> void:
+	color_animator.set_reverse_ease_type(index)

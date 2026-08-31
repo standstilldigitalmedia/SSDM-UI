@@ -14,14 +14,9 @@ enum RotationPivot
 	BOTTOM_RIGHT,    ## Rotation/scale pivot at bottom-right corner of panel. Good for corner spin effects.
 }
 
-
-const X_PROPERTY: String = "custom_minimum_size:x"
-const Y_PROPERTY: String = "custom_minimum_size:y"
-const SCALE_PROPERTY: String = "scale"
-const ROTATION_PROPERTY: String = "rotation"
-const POSITION_PROPERTY: String = "position"
-const POSITION_X_PROPERTY: String = "position:x"
 const PANEL_THEME: String = "panel"
+const MIN_X_PROPERTY: String = "custom_minimum_size:x"
+const MIN_Y_PROPERTY: String = "custom_minimum_size:y"
 
 @export var background_color: Color = Color(1,1,1,1)
 
@@ -63,5 +58,4 @@ func _ready() -> void:
 	if content:
 		await content.get_tree().process_frame
 		content.reparent(panel_container)
-		
 	set_background_color(background_color)

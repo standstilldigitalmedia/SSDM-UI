@@ -1,0 +1,633 @@
+[gd_scene format=3 uid="uid://cb8dnjxkvepiu"]
+
+[ext_resource type="Script" uid="uid://ca4iksnw4so8u" path="res://addons/SSDM-UI/demo/panel_container/shader/panel_shader_demo.gd" id="1_1vq2w"]
+[ext_resource type="PackedScene" uid="uid://b0yn1nr3x2yly" path="res://addons/SSDM-UI/animators/panel_container/tweened_shader/dissolve/dissolve_scene.tscn" id="2_w7ou6"]
+[ext_resource type="PackedScene" uid="uid://cs5man6x1mtea" path="res://addons/SSDM-UI/animators/panel_container/tweened_shader/color/color_scene.tscn" id="3_ldoy7"]
+[ext_resource type="PackedScene" uid="uid://c4wa532nrxqul" path="res://addons/SSDM-UI/demo/panel_container/tween_controls/tween_controls.tscn" id="3_w7ou6"]
+[ext_resource type="PackedScene" uid="uid://dqs056cmirmi8" path="res://addons/SSDM-UI/animators/panel_container/shader/shimmer/shimmer_scene.tscn" id="4_ddh68"]
+[ext_resource type="PackedScene" uid="uid://cr5r2yivcegi7" path="res://addons/SSDM-UI/animators/panel_container/shader/flicker/flicker_scene.tscn" id="5_hsqwg"]
+[ext_resource type="PackedScene" uid="uid://vqa57c56luou" path="res://addons/SSDM-UI/animators/panel_container/shader/pulse/pulse_scene.tscn" id="6_gpwdw"]
+[ext_resource type="PackedScene" uid="uid://dsg4q34ijg3o8" path="res://addons/SSDM-UI/animators/panel_container/shader/hue_shift/hue_shift_scene.tscn" id="7_6rtdp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwyuu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htm0m"]
+
+[node name="PanelShaderDemo" type="PanelContainer" unique_id=808943060 node_paths=PackedStringArray("dissolve_animator", "color_animator", "flicker_animator", "hue_shift_animator", "pulse_animator", "shimmer_animator")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kwyuu")
+script = ExtResource("1_1vq2w")
+dissolve_animator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/DissolveScene")
+color_animator = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer/ColorScene")
+flicker_animator = NodePath("CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer/FlickerScene")
+hue_shift_animator = NodePath("CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HueShiftScene")
+pulse_animator = NodePath("CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/PulseScene")
+shimmer_animator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer/ShimmerScene")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=998782658]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1850363919]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2074784506]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Dissolve" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=487753717]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve" unique_id=2147052128]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer" unique_id=835879852]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer" unique_id=370983604]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer" unique_id=989360930]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Dissolve"
+horizontal_alignment = 1
+
+[node name="DissolveScene" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer" unique_id=347797415 instance=ExtResource("2_w7ou6")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1946384678]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="DissolvePlaytButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1213660086]
+layout_mode = 2
+text = "Play"
+
+[node name="DissolveReverseButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1448835117]
+layout_mode = 2
+text = "Reverse"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer" unique_id=506829252]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer" unique_id=756352883]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=302462031]
+layout_mode = 2
+text = "Speed:"
+
+[node name="DissolveSpeedSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1602213885]
+layout_mode = 2
+min_value = 0.01
+max_value = 10.0
+step = 0.1
+value = 1.01
+
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=989722153]
+layout_mode = 2
+text = "Mode:"
+
+[node name="DissolveModeOptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1085832375]
+layout_mode = 2
+selected = 1
+item_count = 3
+popup/item_0/text = "UV Sweep"
+popup/item_0/id = 0
+popup/item_1/text = "Noise"
+popup/item_1/id = 1
+popup/item_2/text = "Radial"
+popup/item_2/id = 2
+
+[node name="Label6" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2060386745]
+layout_mode = 2
+text = "Spread:"
+
+[node name="DissolveSpreadSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=393853354]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.1
+
+[node name="Label7" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=83205168]
+layout_mode = 2
+text = "Background Color:"
+
+[node name="DissolveBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1678582086]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+
+[node name="TweenControls" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer" unique_id=680927172 instance=ExtResource("3_w7ou6")]
+layout_mode = 2
+
+[node name="Shimmer" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1438092188]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer" unique_id=312794554]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer" unique_id=39222332]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer" unique_id=1483994716]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2058179843]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Shimmer"
+horizontal_alignment = 1
+
+[node name="ShimmerScene" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=573972786 instance=ExtResource("4_ddh68")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2046657658]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="ShimmerPlayButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=71911972]
+layout_mode = 2
+text = "Play"
+
+[node name="ShimmerStopButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=177872847]
+layout_mode = 2
+text = "Stop"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer" unique_id=1972118788]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer" unique_id=34428466]
+layout_mode = 2
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1356705421]
+layout_mode = 2
+text = "Speed:"
+
+[node name="ShimmerSpeedSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1362477157]
+layout_mode = 2
+min_value = 0.01
+max_value = 5.0
+step = 0.01
+value = 2.0
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=823409804]
+layout_mode = 2
+text = "Width:"
+
+[node name="ShimmerWidthSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2014482237]
+layout_mode = 2
+min_value = 0.01
+max_value = 0.99
+step = 0.01
+value = 0.21000000000000002
+
+[node name="Label4" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=672945578]
+layout_mode = 2
+text = "Brightness:"
+
+[node name="ShimmerBrightnessSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2082645037]
+layout_mode = 2
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=19441494]
+layout_mode = 2
+text = "Duration:"
+
+[node name="ShimmerDurationSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=751198767]
+layout_mode = 2
+step = 0.01
+
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1953202605]
+layout_mode = 2
+text = "Background Color:"
+
+[node name="ShimmerBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=473924453]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=446350065]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Color" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1132906733]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color" unique_id=409459514]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer" unique_id=10303975]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer" unique_id=1696991276]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=289867706]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Color"
+horizontal_alignment = 1
+
+[node name="ColorScene" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=22623759 instance=ExtResource("3_ldoy7")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1204854610]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="ColorPlayButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=135868091]
+layout_mode = 2
+text = "Play"
+
+[node name="ColorReverseButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2038527559]
+layout_mode = 2
+text = "Reverse"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer" unique_id=1873791400]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer" unique_id=271294903]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=853824219]
+layout_mode = 2
+text = "Speed:"
+
+[node name="ColorSpeedSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1102576797]
+custom_minimum_size = Vector2(117, 0)
+layout_mode = 2
+min_value = 0.01
+max_value = 10.0
+step = 0.1
+value = 1.01
+
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1245359033]
+layout_mode = 2
+text = "To color:"
+
+[node name="ColorToPickerButton" type="ColorPickerButton" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1152267790]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1617200006]
+layout_mode = 2
+text = "Background Color:"
+
+[node name="ColorBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1341099203]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+
+[node name="TweenControls" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer" unique_id=1364258467 instance=ExtResource("3_w7ou6")]
+layout_mode = 2
+
+[node name="Flicker" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1822374040]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker" unique_id=663484171]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer" unique_id=2105153553]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer" unique_id=2034063414]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1921477779]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Flicker"
+horizontal_alignment = 1
+
+[node name="FlickerScene" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1546485673 instance=ExtResource("5_hsqwg")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1209358833]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="FlickerPlayButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=799808176]
+layout_mode = 2
+text = "Play"
+
+[node name="FlickerStopButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1385140907]
+layout_mode = 2
+text = "Stop"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer" unique_id=1205295174]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer" unique_id=1839889777]
+layout_mode = 2
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label8" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1852756578]
+layout_mode = 2
+text = "Speed:"
+
+[node name="FlickerSpeedSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1087955318]
+layout_mode = 2
+max_value = 20.0
+step = 0.01
+value = 10.0
+
+[node name="Label9" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1996944244]
+layout_mode = 2
+text = "Min Alpha:"
+
+[node name="FlickerMinAlphaSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=256163923]
+layout_mode = 2
+max_value = 0.99
+step = 0.01
+value = 0.3
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2070488875]
+layout_mode = 2
+text = "Duration:"
+
+[node name="FlickerDurationSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=2146362609]
+layout_mode = 2
+step = 0.01
+
+[node name="Label10" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=66345762]
+layout_mode = 2
+text = "Background Color:"
+
+[node name="FlickerBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=179633495]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=46011149]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Pulse" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3" unique_id=676499837]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse" unique_id=724168104]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer" unique_id=2033146553]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2" unique_id=870811355]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=439090118]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pulse"
+horizontal_alignment = 1
+
+[node name="PulseScene" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=59314470 instance=ExtResource("6_gpwdw")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=1670410778]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="PulsePlayButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=988075187]
+layout_mode = 2
+text = "Play"
+
+[node name="PulseStopButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=508959584]
+layout_mode = 2
+text = "Stop"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2" unique_id=249131716]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer" unique_id=1230691807]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label11" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1845625895]
+layout_mode = 2
+text = "Speed:"
+
+[node name="PulseSpeedSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=715043681]
+layout_mode = 2
+max_value = 20.0
+step = 0.01
+value = 10.0
+
+[node name="Label12" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=926194080]
+layout_mode = 2
+text = "Min Alpha:"
+
+[node name="PulseMinAlphaSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=40519414]
+layout_mode = 2
+max_value = 0.99
+step = 0.01
+value = 0.2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1422234427]
+layout_mode = 2
+text = "Duration:"
+
+[node name="PulseDurationSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1039554640]
+layout_mode = 2
+step = 0.01
+
+[node name="Label13" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1121416680]
+layout_mode = 2
+text = "Background Color:"
+
+[node name="PulseBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer" unique_id=1409631850]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+
+[node name="HueShift" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3" unique_id=949480928]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift" unique_id=19484113]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer" unique_id=1471683904]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer" unique_id=837292388]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer" unique_id=894568762]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hue Shift"
+horizontal_alignment = 1
+
+[node name="HueShiftScene" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2067040902 instance=ExtResource("7_6rtdp")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer" unique_id=161233031]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="HueShiftPlayButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1518427528]
+layout_mode = 2
+text = "Play"
+
+[node name="HueShiftStopButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=598411676]
+layout_mode = 2
+text = "Stop"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer" unique_id=1619603116]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer" unique_id=707541113]
+layout_mode = 2
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label14" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1586543447]
+layout_mode = 2
+text = "Speed:"
+
+[node name="HueShiftSpeedSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=581087283]
+layout_mode = 2
+max_value = 10.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1133317441]
+layout_mode = 2
+text = "Duration:"
+
+[node name="HueShiftDurationSpinBox" type="SpinBox" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=94182427]
+layout_mode = 2
+step = 0.01
+
+[node name="Label15" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1040750373]
+layout_mode = 2
+text = "Background Color:"
+
+[node name="HueShiftBackgroundColorPickerButton" type="ColorPickerButton" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer" unique_id=1900873371]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolvePlaytButton" to="." method="_on_dissolve_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/DissolveReverseButton" to="." method="_on_dissolve_reverse_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveSpeedSpinBox" to="." method="_on_dissolve_speed_spin_box_value_changed"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveModeOptionButton" to="." method="_on_dissolve_mode_option_button_item_selected"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveSpreadSpinBox" to="." method="_on_dissolve_spread_spin_box_value_changed"]
+[connection signal="color_changed" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/CenterContainer/GridContainer/DissolveBackgroundColorPickerButton" to="." method="_on_dissolve_background_color_picker_button_color_changed"]
+[connection signal="play_ease_type_selected" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/TweenControls" to="." method="_on_dissolve_play_ease_type_option_button_item_selected"]
+[connection signal="reverse_ease_type_selected" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/TweenControls" to="." method="_on_dissolve_reverse_ease_type_option_button_item_selected"]
+[connection signal="transition_type_selected" from="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/TweenControls" to="." method="_on_dissolve_trans_type_option_button_item_selected"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ShimmerPlayButton" to="." method="_on_shimmer_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ShimmerStopButton" to="." method="_on_shimmer_stop_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerSpeedSpinBox" to="." method="_on_shimmer_speed_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerWidthSpinBox" to="." method="_on_shimmer_width_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerBrightnessSpinBox" to="." method="_on_shimmer_brightness_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerDurationSpinBox" to="." method="_on_shimmer_duration_spin_box_value_changed"]
+[connection signal="color_changed" from="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ShimmerBackgroundColorPickerButton" to="." method="_on_shimmer_background_color_picker_button_color_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ColorPlayButton" to="." method="_on_color_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/ColorReverseButton" to="." method="_on_color_reverse_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ColorSpeedSpinBox" to="." method="_on_color_speed_spin_box_value_changed"]
+[connection signal="color_changed" from="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ColorToPickerButton" to="." method="_on_color_to_picker_button_color_changed"]
+[connection signal="color_changed" from="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/CenterContainer/GridContainer/ColorBackgroundColorPickerButton" to="." method="_on_color_background_color_picker_button_color_changed"]
+[connection signal="play_ease_type_selected" from="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/TweenControls" to="." method="_on_color_play_ease_type_option_button_item_selected"]
+[connection signal="reverse_ease_type_selected" from="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/TweenControls" to="." method="_on_color_reverse_ease_type_option_button_item_selected"]
+[connection signal="transition_type_selected" from="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/TweenControls" to="." method="_on_color_trans_type_option_button_item_selected"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/FlickerPlayButton" to="." method="_on_flicker_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/FlickerStopButton" to="." method="_on_flicker_stop_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer/FlickerSpeedSpinBox" to="." method="_on_flicker_speed_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer/FlickerMinAlphaSpinBox" to="." method="_on_flicker_min_alpha_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer/FlickerDurationSpinBox" to="." method="_on_flicker_duration_spin_box_value_changed"]
+[connection signal="color_changed" from="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/CenterContainer/GridContainer/FlickerBackgroundColorPickerButton" to="." method="_on_flicker_background_color_picker_button_color_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PulsePlayButton" to="." method="_on_pulse_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/HBoxContainer/PulseStopButton" to="." method="_on_pulse_stop_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer/PulseSpeedSpinBox" to="." method="_on_pulse_speed_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer/PulseMinAlphaSpinBox" to="." method="_on_pulse_min_alpha_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer/PulseDurationSpinBox" to="." method="_on_pulse_duration_spin_box_value_changed"]
+[connection signal="color_changed" from="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/CenterContainer/GridContainer/PulseBackgroundColorPickerButton" to="." method="_on_pulse_background_color_picker_button_color_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HueShiftPlayButton" to="." method="_on_hue_shift_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/HueShiftStopButton" to="." method="_on_hue_shift_stop_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HueShiftSpeedSpinBox" to="." method="_on_hue_shift_speed_spin_box_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HueShiftDurationSpinBox" to="." method="_on_hue_shift_duration_spin_box_value_changed"]
+[connection signal="color_changed" from="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/CenterContainer/GridContainer/HueShiftBackgroundColorPickerButton" to="." method="_on_hue_shift_background_color_picker_button_color_changed"]

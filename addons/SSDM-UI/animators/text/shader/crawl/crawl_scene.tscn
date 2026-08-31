@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bgmu8f6lbmobr" path="res://addons/SSDM-UI/animators/text/shader/crawl/crawl_animator.gd" id="1_ttkox"]
 [ext_resource type="Material" uid="uid://443y62l02kg4" path="res://addons/SSDM-UI/animators/text/shader/crawl/crawl_material.tres" id="2_a1idw"]
 
-[node name="Control" type="Control" unique_id=1238642580 node_paths=PackedStringArray("crawl_viewport", "text_label")]
+[node name="Control" type="Control" unique_id=1238642580 node_paths=PackedStringArray("viewport", "text_label")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 200.0
@@ -17,7 +17,7 @@ label_text = "Lets add some more text so we can see what this thing does when th
 viewport_height = 300.0
 fade_height = 0.5
 shader_material = ExtResource("2_a1idw")
-crawl_viewport = NodePath(".")
+viewport = NodePath(".")
 text_label = NodePath("TextBase")
 
 [node name="TextBase" type="RichTextLabel" parent="." unique_id=778281784]

@@ -1,6 +1,7 @@
 class_name SSDMUIControlPositionAnimator
 extends SSDMUISingleControlTransformAnimatorBase
 
+const POSITION_PROPERTY: String = "position"
 
 @export var offset: Vector2 = Vector2(20.0, 20.0)  ## Starting offset position in pixels. Animates to (0,0).
 	
@@ -17,21 +18,15 @@ func set_position_offset(new_offset: Vector2) -> void:
 	offset = new_offset
 	
 	
-func _init_tween_forward() -> void:
-	position = Vector2.ZERO
-	
-	
-func _init_tween_reverse() -> void:
-	position = offset
-	
-	
 func _tween_forward() -> void:
-	main_tween.tween_property(self, POSITION_PROPERTY, offset, speed)
-	await main_tween.finished
+	position = Vector2.ZERO
+	_main_tween.tween_property(self, POSITION_PROPERTY, offset, speed)
+	await _main_tween.finished
 	finished.emit()
 	
 	
 func _tween_reverse() -> void:
-	main_tween.tween_property(self, POSITION_PROPERTY, Vector2.ZERO, speed)
-	await main_tween.finished
+	position = offset
+	_main_tween.tween_property(self, POSITION_PROPERTY, Vector2.ZERO, speed)
+	await _main_tween.finished
 	finished.emit()

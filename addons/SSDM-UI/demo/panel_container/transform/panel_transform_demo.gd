@@ -30,12 +30,12 @@ func _on_position_trans_type_option_button_item_selected(index: int) -> void:
 	position_animator.set_transition_type(index)
 
 
-func _on_position_ease_open_type_option_button_item_selected(index: int) -> void:
-	position_animator.set_ease_type_open(index)
+func _on_position_play_ease_type_option_button_item_selected(index: int) -> void:
+	position_animator.set_play_ease_type(index)
 
 
-func _on_position_ease_close_type_option_button_item_selected(index: int) -> void:
-	position_animator.set_ease_type_close(index)
+func _on_position_reverse_ease_type_option_button_item_selected(index: int) -> void:
+	position_animator.set_reverse_ease_type(index)
 
 
 func _on_position_background_color_picker_button_color_changed(color: Color) -> void:
@@ -74,12 +74,12 @@ func _on_rotation_trans_type_option_button_item_selected(index: int) -> void:
 	rotation_animator.set_transition_type(index)
 
 
-func _on_rotation_ease_open_type_option_button_item_selected(index: int) -> void:
-	rotation_animator.set_ease_type_open(index)
+func _on_rotation_play_ease_type_option_button_item_selected(index: int) -> void:
+	rotation_animator.set_play_ease_type(index)
 
 
-func _on_rotation_ease_close_type_option_button_item_selected(index: int) -> void:
-	rotation_animator.set_ease_type_close(index)
+func _on_rotation_reverse_ease_type_option_button_item_selected(index: int) -> void:
+	rotation_animator.set_reverse_ease_type(index)
 
 
 func _on_scale_play_button_pressed() -> void:
@@ -122,12 +122,12 @@ func _on_scale_trans_type_option_button_item_selected(index: int) -> void:
 	scale_animator.set_transition_type(index)
 
 
-func _on_scale_ease_open_type_option_button_item_selected(index: int) -> void:
-	scale_animator.set_ease_type_open(index)
+func _on_scale_play_ease_type_option_button_item_selected(index: int) -> void:
+	scale_animator.set_play_ease_type(index)
 
 
-func _on_scale_ease_close_type_option_button_item_selected(index: int) -> void:
-	scale_animator.set_ease_type_close(index)
+func _on_scale_reverse_ease_type_option_button_item_selected(index: int) -> void:
+	scale_animator.set_reverse_ease_type(index)
 
 
 func _on_shake_play_button_pressed() -> void:
@@ -144,6 +144,18 @@ func _on_shake_amount_spin_box_value_changed(value: float) -> void:
 
 func _on_shake_background_color_picker_button_color_changed(color: Color) -> void:
 	shake_animator.set_background_color(color)
+	
+	
+func _on_shake_trans_type_option_button_item_selected(index: int) -> void:
+	shake_animator.set_transition_type(index)
+
+
+func _on_shake_play_ease_type_option_button_item_selected(index: int) -> void:
+	shake_animator.set_play_ease_type(index)
+
+
+func _on_shake_reverse_ease_type_option_button_item_selected(index: int) -> void:
+	shake_animator.set_reverse_ease_type(index)
 
 
 func _on_slide_play_button_pressed() -> void:
@@ -178,9 +190,9 @@ func _on_slide_trans_type_option_button_item_selected(index: int) -> void:
 	slide_animator.set_transition_type(index)
 
 
-func _on_slide_ease_open_type_option_button_item_selected(index: int) -> void:
-	slide_animator.set_ease_type_open(index)
+func _on_slide_play_ease_type_option_button_item_selected(index: int) -> void:
+	slide_animator.set_play_ease_type(index)
 
 
-func _on_slide_ease_close_type_option_button_item_selected(index: int) -> void:
-	slide_animator.set_ease_type_close(index)
+func _on_slide_reverse_ease_type_option_button_item_selected(index: int) -> void:
+	slide_animator.set_reverse_ease_type(index)

@@ -6,34 +6,33 @@ extends SSDMUISingleControlTweenAnimatorBase
 
 
 func set_speed(new_speed: float) -> void:
+	shader_material.set_shader_parameter(SSDMUISingleControlShaderAnimatorBase.SPEED, new_speed)
 	speed = new_speed
 	
 	
 func set_background_color(new_background_color: Color) -> void:
-	shader_material.set_shader_parameter(SSDMUISingleControlShaderAnimatorBase.BG_COLOR, new_background_color)
+	shader_material.set_shader_parameter(SSDMUISingleControlShaderAnimatorBase.BACKGROUND_COLOR, new_background_color)
 	
 	
 func play() -> void:
-	kill()
+	stop()
 	_enable_shader()
-	_init_tween_forward()
-	_create_open_tween()
+	_create_play_tween()
 	_tween_forward()
-	await main_tween.finished
+	await _main_tween.finished
 	finished.emit()
 
 
 func reverse() -> void:
-	kill()
-	_create_close_tween()
+	stop()
+	_create_reverse_tween()
 	_enable_shader()
-	_init_tween_reverse()
 	_tween_reverse()
-	await main_tween.finished
+	await _main_tween.finished
 	finished.emit()
 	
 	
-func kill() -> void:
+func stop() -> void:
 	_disable_shader()
 	super()
 	

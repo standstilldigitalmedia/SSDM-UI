@@ -1,8 +1,10 @@
 class_name SSDMUIControlScaleAnimator
 extends SSDMUISingleControlTransformAnimatorBase
 
-@export var scale_from: Vector2 = Vector2(0.1, 0.1)
-@export var scale_to: Vector2 = Vector2.ONE
+const SCALE_PROPERTY: String = "scale"
+
+@export var scale_from: Vector2 = Vector2.ONE
+@export var scale_to: Vector2 = Vector2(0.1, 0.1)
 @export var pivot_preset: RotationPivot = RotationPivot.CENTER
 
 
@@ -34,23 +36,17 @@ func set_pivot_preset(new_pivot_preset: RotationPivot) -> void:
 	pivot_preset = new_pivot_preset
 	
 	
-func _init_tween_forward() -> void:
+func _tween_forward() -> void:
 	panel_container.scale = scale_from
 	panel_container.pivot_offset = _get_pivot_offset(panel_container, pivot_preset)
-	
-
-func _init_tween_reverse() -> void:
-	panel_container.scale = scale_to
-	panel_container.pivot_offset = _get_pivot_offset(panel_container, pivot_preset)
-	
-	
-func _tween_forward() -> void:
-	main_tween.tween_property(panel_container, SCALE_PROPERTY, scale_to, speed)
-	await main_tween.finished
+	_main_tween.tween_property(panel_container, SCALE_PROPERTY, scale_to, speed)
+	await _main_tween.finished
 	finished.emit()
 	
 	
 func _tween_reverse() -> void:
-	main_tween.tween_property(panel_container, SCALE_PROPERTY, scale_from, speed)
-	await main_tween.finished
+	panel_container.scale = scale_to
+	panel_container.pivot_offset = _get_pivot_offset(panel_container, pivot_preset)
+	_main_tween.tween_property(panel_container, SCALE_PROPERTY, scale_from, speed)
+	await _main_tween.finished
 	finished.emit()
