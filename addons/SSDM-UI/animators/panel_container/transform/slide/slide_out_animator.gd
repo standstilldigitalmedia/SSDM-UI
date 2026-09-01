@@ -1,5 +1,5 @@
 class_name SSDMUIControlSlideOutAnimator
-extends SSDMUISingleControlTransformAnimatorBase
+extends SSDMUISingleControlTweenedTransformAnimatorBase
 
 const TRANSFORM_X_PROPERTY: String = "custom_minimum_size:x"
 const TRANSFORM_Y_PROPERTY: String = "custom_minimum_size:y"

@@ -1,5 +1,6 @@
+@tool
 class_name SSDMUIControlPositionAnimator
-extends SSDMUISingleControlTransformAnimatorBase
+extends SSDMUISingleControlTweenedTransformAnimatorBase
 
 const POSITION_PROPERTY: String = "position"
 

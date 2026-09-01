@@ -1,5 +1,5 @@
 class_name SSDMUIControlShakeAnimator
-extends SSDMUISingleControlTransformAnimatorBase
+extends SSDMUISingleControlTweenedTransformAnimatorBase
 
 const POSITION_X_PROPERTY: String = "position:x"
 

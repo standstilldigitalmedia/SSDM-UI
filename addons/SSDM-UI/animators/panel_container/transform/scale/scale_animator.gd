@@ -1,5 +1,5 @@
 class_name SSDMUIControlScaleAnimator
-extends SSDMUISingleControlTransformAnimatorBase
+extends SSDMUISingleControlTweenedTransformAnimatorBase
 
 const SCALE_PROPERTY: String = "scale"
 

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bi6wysqbifv7s" path="res://addons/SSDM-UI/animators/panel_container/transform/scale/scale_scene.tscn" id="4_p6c7l"]
 [ext_resource type="PackedScene" uid="uid://mmdg32fqn3lq" path="res://addons/SSDM-UI/animators/panel_container/transform/shake/shake_scene.tscn" id="5_mxpb5"]
 [ext_resource type="PackedScene" uid="uid://bjcy20bl8n764" path="res://addons/SSDM-UI/animators/panel_container/transform/slide/slide_out_scene.tscn" id="6_vr34q"]
-[ext_resource type="PackedScene" uid="uid://c4wa532nrxqul" path="res://addons/SSDM-UI/demo/panel_container/tween_controls/tween_controls.tscn" id="7_jnpri"]
+[ext_resource type="PackedScene" uid="uid://c4wa532nrxqul" path="res://addons/SSDM-UI/demo/tween_controls/tween_controls.tscn" id="7_jnpri"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwyuu"]
 bg_color = Color(0, 0, 0, 1)
@@ -55,19 +55,9 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PositionScene" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1991166403 node_paths=PackedStringArray("content") instance=ExtResource("2_abrvf")]
+[node name="PositionScene" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1991166403 instance=ExtResource("2_abrvf")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-content = NodePath("Label")
-
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer/PositionScene" unique_id=2058179843]
-layout_mode = 0
-offset_top = -33.0
-offset_right = 211.0
-offset_bottom = -10.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Position"
-horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2046657658]
 layout_mode = 2

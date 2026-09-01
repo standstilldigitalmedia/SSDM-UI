@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ca4iksnw4so8u" path="res://addons/SSDM-UI/demo/panel_container/shader/panel_shader_demo.gd" id="1_1vq2w"]
 [ext_resource type="PackedScene" uid="uid://b0yn1nr3x2yly" path="res://addons/SSDM-UI/animators/panel_container/tweened_shader/dissolve/dissolve_scene.tscn" id="2_w7ou6"]
 [ext_resource type="PackedScene" uid="uid://cs5man6x1mtea" path="res://addons/SSDM-UI/animators/panel_container/tweened_shader/color/color_scene.tscn" id="3_ldoy7"]
-[ext_resource type="PackedScene" uid="uid://c4wa532nrxqul" path="res://addons/SSDM-UI/demo/panel_container/tween_controls/tween_controls.tscn" id="3_w7ou6"]
+[ext_resource type="PackedScene" uid="uid://c4wa532nrxqul" path="res://addons/SSDM-UI/demo/tween_controls/tween_controls.tscn" id="3_w7ou6"]
 [ext_resource type="PackedScene" uid="uid://dqs056cmirmi8" path="res://addons/SSDM-UI/animators/panel_container/shader/shimmer/shimmer_scene.tscn" id="4_ddh68"]
 [ext_resource type="PackedScene" uid="uid://cr5r2yivcegi7" path="res://addons/SSDM-UI/animators/panel_container/shader/flicker/flicker_scene.tscn" id="5_hsqwg"]
 [ext_resource type="PackedScene" uid="uid://vqa57c56luou" path="res://addons/SSDM-UI/animators/panel_container/shader/pulse/pulse_scene.tscn" id="6_gpwdw"]
@@ -15,7 +15,6 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htm0m"]
 
 [node name="PanelShaderDemo" type="PanelContainer" unique_id=808943060 node_paths=PackedStringArray("dissolve_animator", "color_animator", "flicker_animator", "hue_shift_animator", "pulse_animator", "shimmer_animator")]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

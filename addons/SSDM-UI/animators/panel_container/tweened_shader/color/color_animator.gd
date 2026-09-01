@@ -10,10 +10,6 @@ func set_to_color(new_color: Color) -> void:
 	to_color = new_color
 	
 	
-func _init_shader_paramaters() -> void:
-	super()
-	
-	
 func _tween_forward() -> void:
 	_main_tween.tween_property(shader_material, SSDMUISingleControlShaderAnimatorBase.SHADER_PARAMETER + SSDMUISingleControlShaderAnimatorBase.BACKGROUND_COLOR, to_color, speed)	
 	

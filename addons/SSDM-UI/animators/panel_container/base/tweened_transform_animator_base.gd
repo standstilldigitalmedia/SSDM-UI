@@ -1,4 +1,4 @@
-@abstract class_name SSDMUISingleControlTransformAnimatorBase
+@abstract class_name SSDMUISingleControlTweenedTransformAnimatorBase
 extends SSDMUISingleControlTweenAnimatorBase
 
 enum RotationPivot 
@@ -15,8 +15,6 @@ enum RotationPivot
 }
 
 const PANEL_THEME: String = "panel"
-const MIN_X_PROPERTY: String = "custom_minimum_size:x"
-const MIN_Y_PROPERTY: String = "custom_minimum_size:y"
 
 @export var background_color: Color = Color(1,1,1,1)
 

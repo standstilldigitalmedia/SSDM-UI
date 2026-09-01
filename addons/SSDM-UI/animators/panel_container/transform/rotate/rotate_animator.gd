@@ -1,5 +1,5 @@
 class_name SSDMUIControlRotateAnimator
-extends SSDMUISingleControlTransformAnimatorBase
+extends SSDMUISingleControlTweenedTransformAnimatorBase
 
 const ROTATION_PROPERTY: String = "rotation"
 
