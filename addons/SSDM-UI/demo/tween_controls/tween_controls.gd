@@ -13,9 +13,9 @@ signal reverse_ease_type_selected(new_type: int)
 
 
 func _ui_set_transition_type() -> void:
-	if transition_type_option_button.selected == SSDMUISingleControlTweenAnimatorBase.TransitionType.NONE:
-		play_ease_type_option_button.select(SSDMUISingleControlTweenAnimatorBase.EaseType.None)
-		reverse_ease_type_option_button.select(SSDMUISingleControlTweenAnimatorBase.EaseType.None)
+	if transition_type_option_button.selected == SSDMUIGlobal.TransitionType.None:
+		play_ease_type_option_button.select(SSDMUIGlobal.EaseType.None)
+		reverse_ease_type_option_button.select(SSDMUIGlobal.EaseType.None)
 		play_ease_type_label.hide()
 		play_ease_type_option_button.hide()
 		reverse_ease_type_label.hide()

@@ -55,9 +55,19 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PositionScene" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1991166403 instance=ExtResource("2_abrvf")]
+[node name="PositionScene" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1496467887 node_paths=PackedStringArray("content") instance=ExtResource("2_abrvf")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+content = NodePath("Label")
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer/PositionScene" unique_id=325403217]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Position"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Position/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2046657658]
 layout_mode = 2
@@ -149,14 +159,14 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 content = NodePath("Label")
 
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/VBoxContainer/ScaleScene" unique_id=1921477779]
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/VBoxContainer/ScaleScene" unique_id=1255617955]
 layout_mode = 0
-offset_top = -33.0
-offset_right = 211.0
-offset_bottom = -10.0
+offset_right = 40.0
+offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Scale"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Scale/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1209358833]
 layout_mode = 2
@@ -304,15 +314,16 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 content = NodePath("Label")
+transition_type = 5
 
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer/RotateScene" unique_id=989360930]
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer/RotateScene" unique_id=831563912]
 layout_mode = 0
-offset_top = -33.0
-offset_right = 211.0
-offset_bottom = -10.0
+offset_right = 40.0
+offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Rotation"
+text = "Rotate"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1946384678]
 layout_mode = 2
@@ -426,18 +437,21 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="SlideOutScene" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1374310533 node_paths=PackedStringArray("content") instance=ExtResource("6_vr34q")]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(200, 100)
+clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 2
+start_full = true
 content = NodePath("Label")
 
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/VBoxContainer/SlideOutScene" unique_id=894568762]
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/VBoxContainer/SlideOutScene" unique_id=1965744194]
 layout_mode = 0
-offset_top = -33.0
-offset_right = 211.0
-offset_bottom = -10.0
+offset_right = 40.0
+offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Slide"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/VBoxContainer" unique_id=161233031]
 layout_mode = 2
@@ -543,15 +557,17 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 content = NodePath("Label")
+speed = 0.05
+transition_type = 1
 
-[node name="Label" type="Label" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/VBoxContainer/ShakeScene" unique_id=439090118]
-layout_mode = 0
-offset_top = -33.0
-offset_right = 211.0
-offset_bottom = -10.0
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/VBoxContainer/ShakeScene" unique_id=1607784188]
+layout_mode = 1
+offset_right = 47.0
+offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Shake"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=1670410778]
 layout_mode = 2

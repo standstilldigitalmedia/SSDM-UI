@@ -13,7 +13,7 @@ func _on_dissolve_start_button_pressed() -> void:
 
 
 func _on_dissolve_stop_button_pressed() -> void:
-	dissolve_animator.kill_tween()
+	dissolve_animator.stop()
 	
 	
 func _on_dissolve_reverse_button_pressed() -> void:
@@ -149,7 +149,7 @@ func _on_color_start_button_pressed() -> void:
 
 
 func _on_color_stop_button_pressed() -> void:
-	color_animator.kill_tween()
+	color_animator.stop()
 	color_animator.set_background_color(color_animator.background_color)
 
 

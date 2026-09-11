@@ -1,9 +1,8 @@
+@tool
 class_name SSDMUIControlShakeAnimator
 extends SSDMUISingleControlTweenedTransformAnimatorBase
 
-const POSITION_X_PROPERTY: String = "position:x"
-
-@export var amount: float = 3.0  ## Maximum shake distance in pixels. Typical range: 2-10 pixels.
+@export var amount: float = 3.0 
 
 
 func set_amount(new_shake_amount: float) -> void:
@@ -11,10 +10,10 @@ func set_amount(new_shake_amount: float) -> void:
 	
 
 func _tween_forward() -> void:
-	_main_tween.tween_property(panel_container, POSITION_X_PROPERTY, amount, speed)
-	_main_tween.tween_property(panel_container, POSITION_X_PROPERTY, -amount, speed)
-	_main_tween.tween_property(panel_container, POSITION_X_PROPERTY, amount / 2.0, speed)
-	_main_tween.tween_property(panel_container, POSITION_X_PROPERTY, 0, speed)
+	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, amount, speed)
+	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, -amount, speed)
+	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, amount / 2.0, speed)
+	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, 0, speed)
 	await _main_tween.finished
 	finished.emit()
 	

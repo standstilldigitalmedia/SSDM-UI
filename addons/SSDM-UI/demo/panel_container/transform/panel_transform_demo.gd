@@ -6,6 +6,7 @@ extends PanelContainer
 @export var shake_animator: SSDMUIControlShakeAnimator
 @export var slide_animator: SSDMUIControlSlideOutAnimator
 
+
 func _on_position_play_button_pressed() -> void:
 	position_animator.play()
 
@@ -99,7 +100,7 @@ func _on_scale_pivot_option_button_item_selected(index: int) -> void:
 
 
 func _on_scale_from_x_spin_box_value_changed(value: float) -> void:
-	scale_animator.set_x_scale_to(value)
+	scale_animator.set_x_scale_from(value)
 
 
 func _on_scale_from_y_spin_box_value_changed(value: float) -> void:

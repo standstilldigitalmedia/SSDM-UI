@@ -15,6 +15,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htm0m"]
 
 [node name="PanelShaderDemo" type="PanelContainer" unique_id=808943060 node_paths=PackedStringArray("dissolve_animator", "color_animator", "flicker_animator", "hue_shift_animator", "pulse_animator", "shimmer_animator")]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -60,15 +61,16 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer" unique_id=989360930]
+[node name="DissolveScene" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer" unique_id=347797415 instance=ExtResource("2_w7ou6")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+transition_type = 5
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer/DissolveScene" unique_id=989360930]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Dissolve"
 horizontal_alignment = 1
-
-[node name="DissolveScene" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer" unique_id=347797415 instance=ExtResource("2_w7ou6")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Dissolve/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1946384678]
 layout_mode = 2
@@ -160,15 +162,15 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2058179843]
+[node name="ShimmerScene" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=573972786 instance=ExtResource("4_ddh68")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer/ShimmerScene" unique_id=2058179843]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Shimmer"
 horizontal_alignment = 1
-
-[node name="ShimmerScene" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=573972786 instance=ExtResource("4_ddh68")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/Shimmer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2046657658]
 layout_mode = 2
@@ -265,15 +267,16 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=289867706]
+[node name="ColorScene" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=22623759 instance=ExtResource("3_ldoy7")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+transition_type = 6
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer/ColorScene" unique_id=289867706]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Color"
 horizontal_alignment = 1
-
-[node name="ColorScene" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=22623759 instance=ExtResource("3_ldoy7")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Color/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1204854610]
 layout_mode = 2
@@ -348,15 +351,15 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1921477779]
+[node name="FlickerScene" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1546485673 instance=ExtResource("5_hsqwg")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer/FlickerScene" unique_id=1921477779]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Flicker"
 horizontal_alignment = 1
-
-[node name="FlickerScene" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1546485673 instance=ExtResource("5_hsqwg")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2/Flicker/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1209358833]
 layout_mode = 2
@@ -441,15 +444,15 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=439090118]
+[node name="PulseScene" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=59314470 instance=ExtResource("6_gpwdw")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer/PulseScene" unique_id=439090118]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Pulse"
 horizontal_alignment = 1
-
-[node name="PulseScene" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=59314470 instance=ExtResource("6_gpwdw")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/Pulse/MarginContainer/HBoxContainer2/VBoxContainer" unique_id=1670410778]
 layout_mode = 2
@@ -530,15 +533,15 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer" unique_id=894568762]
+[node name="HueShiftScene" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2067040902 instance=ExtResource("7_6rtdp")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer/HueShiftScene" unique_id=894568762]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Hue Shift"
 horizontal_alignment = 1
-
-[node name="HueShiftScene" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2067040902 instance=ExtResource("7_6rtdp")]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer3/HueShift/MarginContainer/HBoxContainer/VBoxContainer" unique_id=161233031]
 layout_mode = 2
