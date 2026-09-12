@@ -1,9 +1,10 @@
 class_name SSDMUIControlFlickerAnimator
 extends SSDMUISingleControlShaderAnimatorBase
 
-@export var flicker_min_alpha: float = 0.3
-@export var flicker_speed: float = 1.0
-@export var flicker_duration: float = 0.0
+var flicker_min_alpha: float = 0.3
+var flicker_speed: float = 1.0
+var flicker_duration: float = 0.0
+
 
 func set_speed(new_speed: float) -> void:
 	_set_shader_parameter(SSDMUIGlobal.FLICKER_SPEED, new_speed)

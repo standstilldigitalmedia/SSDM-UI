@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cr5r2yivcegi7"]
+
+[ext_resource type="Script" uid="uid://11i2xgkobjut" path="res://addons/SSDM-UI/animators/panel_container/shader/flicker/scene/flicker_scene.gd" id="1_7ngtq"]
+[ext_resource type="Material" uid="uid://byohvyjmqpafu" path="res://addons/SSDM-UI/animators/panel_container/shader/flicker/flicker_material.tres" id="2_kvv7t"]
+
+[node name="FlickerScene" type="PanelContainer" unique_id=1546485673 node_paths=PackedStringArray("animation_target")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7ngtq")
+shader_material = ExtResource("2_kvv7t")
+animation_target = NodePath(".")

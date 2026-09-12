@@ -1,9 +1,9 @@
 class_name SSDMUIControlPulseAnimator
 extends SSDMUISingleControlShaderAnimatorBase
 
-@export var pulse_speed: float = 1.0
-@export var pulse_duration: float = 0.0
-@export var pulse_min_alpha: float = 0.2
+var pulse_speed: float = 1.0
+var pulse_duration: float = 0.0
+var pulse_min_alpha: float = 0.2
 
 
 func set_speed(new_speed: float) -> void:

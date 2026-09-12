@@ -1,8 +1,8 @@
 class_name SSDMUIControlHueShiftAnimator
 extends SSDMUISingleControlShaderAnimatorBase
 
-@export var hue_shift_speed: float = 1.0
-@export var hue_shift_duration: float = 0.0
+var hue_shift_speed: float = 1.0
+var hue_shift_duration: float = 0.0
 
 
 func set_speed(new_speed: float) -> void:

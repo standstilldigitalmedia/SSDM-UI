@@ -1,8 +1,9 @@
 @abstract class_name SSDMUISingleControlShaderAnimatorBase
-extends Control
+extends RefCounted
 
-@export var background_color: Color = Color(1,1,1,1)
-@export var shader_material: ShaderMaterial
+var animation_target: Control
+var background_color: Color = Color(1,1,1,1)
+var shader_material: ShaderMaterial
 var timer: Timer
 
 
@@ -35,7 +36,7 @@ func _init_shader_paramaters() -> void:
 	
 	
 func _apply_shader() -> void:
-	material = shader_material
+	animation_target.material = shader_material
 	
 	
 func _kill_timer() -> void:
@@ -52,10 +53,12 @@ func _create_timeout_timer(duration: float) -> void:
 		timer.one_shot = true
 		timer.wait_time = duration
 		timer.timeout.connect(stop)
-		add_child(timer)
+		animation_target.add_child(timer)
 		timer.start()
 		
 		
-func _ready() -> void:
+func _init(target: Control, material: ShaderMaterial) -> void:
+	animation_target = target
+	shader_material = material
 	_apply_shader()
 	_init_shader_paramaters()

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dqs056cmirmi8"]
+
+[ext_resource type="Script" uid="uid://c7hi2qt3r5jd8" path="res://addons/SSDM-UI/animators/panel_container/shader/shimmer/scene/shimmer_scene.gd" id="1_pryml"]
+[ext_resource type="Material" uid="uid://bgk2r7grtdrqc" path="res://addons/SSDM-UI/animators/panel_container/shader/shimmer/shimmer_material.tres" id="2_ftjnj"]
+
+[node name="ShimmerScene" type="PanelContainer" unique_id=573972786 node_paths=PackedStringArray("animation_target")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_pryml")
+animation_target = NodePath(".")
+shader_material = ExtResource("2_ftjnj")
