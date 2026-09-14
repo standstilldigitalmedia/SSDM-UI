@@ -1,10 +1,10 @@
 extends PanelContainer
 
-@export var position_animator: SSDMUIControlPositionAnimator
-@export var rotation_animator: SSDMUIControlRotateAnimator
-@export var scale_animator: SSDMUIControlScaleAnimator
-@export var shake_animator: SSDMUIControlShakeAnimator
-@export var slide_animator: SSDMUIControlSlideOutAnimator
+@export var position_animator: SSDMUIPositionScene
+@export var rotation_animator: SSDMUIRotateScene
+@export var scale_animator: SSDMUIScaleScene
+@export var shake_animator: SSDMUIShakeScene
+@export var slide_animator: SSDMUISlideOutScene
 
 
 func _on_position_play_button_pressed() -> void:

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bi6wysqbifv7s"]
 
-[ext_resource type="Script" uid="uid://df85sctenaxw3" path="res://addons/SSDM-UI/animators/panel_container/transform/scale/scale_animator.gd" id="1_7xml4"]
+[ext_resource type="Script" uid="uid://xhdwwhhay7s4" path="res://addons/SSDM-UI/animators/panel_container/transform/scale/scale_scene.gd" id="1_7xml4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
 bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="ScaleScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("panel_container")]
+[node name="ScaleScene" type="Control" unique_id=1991166403]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -13,7 +13,6 @@ offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_7xml4")
-panel_container = NodePath("ContentPanelContainer")
 
 [node name="ContentPanelContainer" type="PanelContainer" parent="." unique_id=1160490147]
 layout_mode = 1

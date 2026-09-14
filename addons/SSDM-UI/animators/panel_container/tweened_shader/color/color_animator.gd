@@ -1,7 +1,7 @@
 class_name SSDMUIControlColorAnimator
-extends SSDMUISingleControlTweenedShaderAnimatorBase
+extends Node
 
-@export var color_speed: float = 1.0
+"""@export var color_speed: float = 1.0
 @export var to_color: Color = Color(0,0,0,1)
 
 
@@ -27,3 +27,4 @@ func _tween_forward() -> void:
 	
 func _tween_reverse() -> void:
 	_main_tween.tween_property(shader_material, SSDMUIGlobal.SHADER_PARAMETER + SSDMUIGlobal.BACKGROUND_COLOR, background_color, speed)	
+"""

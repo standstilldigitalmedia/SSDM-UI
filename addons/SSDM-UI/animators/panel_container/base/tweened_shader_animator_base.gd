@@ -44,7 +44,8 @@ func _init_shader_paramaters() -> void:
 	
 	
 func _apply_shader() -> void:
-	material = shader_material
+	pass
+	#material = shader_material
 	
 	
 func _ready() -> void:

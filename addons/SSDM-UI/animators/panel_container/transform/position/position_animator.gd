@@ -1,30 +1,14 @@
 class_name SSDMUIControlPositionAnimator
-extends SSDMUISingleControlTweenedTransformAnimatorBase
-
-@export var offset: Vector2 = Vector2(20.0, 20.0)
+extends SSDMUITweenedTransformAnimatorBase
 	
 	
 func set_x_offset(new_x_offset: float) -> void:
-	offset = Vector2(new_x_offset, offset.y)
+	_tween_to = Vector2(new_x_offset, _tween_to.y)
 	
 	
 func set_y_offset(new_y_offset: float) -> void:
-	offset = Vector2(offset.x, new_y_offset)
+	_tween_to = Vector2(_tween_to.x, new_y_offset)
 	
 	
 func set_position_offset(new_offset: Vector2) -> void:
-	offset = new_offset
-	
-	
-func _tween_forward() -> void:
-	position = Vector2.ZERO
-	_main_tween.tween_property(self, SSDMUIGlobal.POSITION_PROPERTY, offset, speed)
-	await _main_tween.finished
-	finished.emit()
-	
-	
-func _tween_reverse() -> void:
-	position = offset
-	_main_tween.tween_property(self, SSDMUIGlobal.POSITION_PROPERTY, Vector2.ZERO, speed)
-	await _main_tween.finished
-	finished.emit()
+	_tween_to = new_offset

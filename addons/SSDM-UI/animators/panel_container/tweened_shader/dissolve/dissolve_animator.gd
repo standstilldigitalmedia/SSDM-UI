@@ -1,7 +1,7 @@
 class_name SSDMUIControlDissolveAnimator
-extends SSDMUISingleControlTweenedShaderAnimatorBase
+extends PanelContainer
 
-@export var dissolve_speed: float = 1.0
+"""@export var dissolve_speed: float = 1.0
 @export var dissolve_mode: SSDMUIGlobal.Mode = SSDMUIGlobal.Mode.NOISE
 @export var dissolve_spread: float = 0.1 
 
@@ -42,3 +42,4 @@ func _tween_forward() -> void:
 func _tween_reverse() -> void:
 	shader_material.set_shader_parameter(SSDMUIGlobal.DISSOLVE_PROGRESS, 0.0)
 	_main_tween.tween_property(shader_material, SSDMUIGlobal.SHADER_PARAMETER + SSDMUIGlobal.DISSOLVE_PROGRESS, 1.0, speed)
+"""

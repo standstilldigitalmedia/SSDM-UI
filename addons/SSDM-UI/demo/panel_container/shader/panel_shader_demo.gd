@@ -1,14 +1,14 @@
 extends PanelContainer
 
-@export var dissolve_animator: SSDMUIControlDissolveAnimator
-@export var color_animator: SSDMUIControlColorAnimator
+"""@export var dissolve_animator: SSDMUIControlDissolveAnimator
+@export var color_animator: SSDMUIControlColorAnimator"""
 @export var flicker_animator: SSDMUIFlickerScene
 @export var hue_shift_animator: SSDMUIHueShiftScene
 @export var pulse_animator: SSDMUIPulseScene
 @export var shimmer_animator: SSDMUIShimmerScene
 
 
-func _on_dissolve_start_button_pressed() -> void:
+"""func _on_dissolve_start_button_pressed() -> void:
 	dissolve_animator.play()
 
 
@@ -45,7 +45,7 @@ func _on_dissolve_play_ease_type_option_button_item_selected(index: int) -> void
 
 
 func _on_dissolve_reverse_ease_type_option_button_item_selected(index: int) -> void:
-	dissolve_animator.set_reverse_ease_type(index)
+	dissolve_animator.set_reverse_ease_type(index)"""
 
 
 func _on_flicker_start_button_pressed() -> void:
@@ -144,7 +144,7 @@ func _on_shimmer_background_color_picker_button_color_changed(color: Color) -> v
 	shimmer_animator.set_background_color(color)
 
 
-func _on_color_start_button_pressed() -> void:
+"""func _on_color_start_button_pressed() -> void:
 	color_animator.play()
 
 
@@ -179,4 +179,4 @@ func _on_color_play_ease_type_option_button_item_selected(index: int) -> void:
 
 
 func _on_color_reverse_ease_type_option_button_item_selected(index: int) -> void:
-	color_animator.set_reverse_ease_type(index)
+	color_animator.set_reverse_ease_type(index)"""

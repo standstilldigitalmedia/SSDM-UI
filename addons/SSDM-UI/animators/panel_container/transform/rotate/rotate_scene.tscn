@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://co24raluoil47"]
 
-[ext_resource type="Script" uid="uid://b4811tpcg6qpn" path="res://addons/SSDM-UI/animators/panel_container/transform/rotate/rotate_animator.gd" id="1_6k0ch"]
+[ext_resource type="Script" uid="uid://n226m68u2b8a" path="res://addons/SSDM-UI/animators/panel_container/transform/rotate/rotate_scene.gd" id="1_6k0ch"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
 bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="RotateScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("isolation", "panel_container")]
+[node name="RotateScene" type="Control" unique_id=1991166403]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -13,8 +13,6 @@ offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_6k0ch")
-isolation = NodePath("Isolation")
-panel_container = NodePath("Isolation/ContentPanelContainer")
 
 [node name="Isolation" type="Control" parent="." unique_id=1997684978]
 layout_mode = 1

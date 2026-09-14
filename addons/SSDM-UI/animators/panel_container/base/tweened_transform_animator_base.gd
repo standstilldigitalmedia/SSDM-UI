@@ -1,11 +1,9 @@
-@abstract class_name SSDMUISingleControlTweenedTransformAnimatorBase
-extends SSDMUISingleControlTweenAnimatorBase
+@abstract class_name SSDMUITweenedTransformAnimatorBase
+extends SSDMUITweenAnimatorBase
 
-@export var background_color: Color = Color(1,1,1,1)
-
-@export_group("Controls")
-@export var content: Control
-@export var panel_container: PanelContainer
+var background_color: Color = Color(1,1,1,1)
+var content: Control
+var panel_container: PanelContainer
 
 
 func set_background_color(new_background_color: Color) -> void:

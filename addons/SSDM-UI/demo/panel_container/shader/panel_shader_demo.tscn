@@ -15,6 +15,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htm0m"]
 
 [node name="PanelShaderDemo" type="PanelContainer" unique_id=808943060 node_paths=PackedStringArray("dissolve_animator", "color_animator", "flicker_animator", "hue_shift_animator", "pulse_animator", "shimmer_animator")]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -42,6 +43,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Dissolve" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=487753717]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
 
@@ -248,6 +250,7 @@ theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Color" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1132906733]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_htm0m")
 
