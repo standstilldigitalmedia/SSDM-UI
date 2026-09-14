@@ -1,4 +1,4 @@
-class_name SSDMUIControlPositionAnimator
+class_name SSDMUIPositionAnimator
 extends SSDMUITweenedTransformAnimatorBase
 	
 	

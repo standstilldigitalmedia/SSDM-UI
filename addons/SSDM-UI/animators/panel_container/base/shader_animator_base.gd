@@ -1,4 +1,4 @@
-@abstract class_name SSDMUISingleControlShaderAnimatorBase
+@abstract class_name SSDMUIShaderAnimatorBase
 extends RefCounted
 
 var _animation_target: Control

@@ -1,5 +1,5 @@
-class_name SSDMUIControlShimmerAnimator
-extends SSDMUISingleControlShaderAnimatorBase
+class_name SSDMUIShimmerAnimator
+extends SSDMUIShaderAnimatorBase
 
 
 func set_width(new_width: float) -> void:

@@ -10,7 +10,7 @@ extends PanelContainer
 @export var animation_target: Control
 @export var shader_material: ShaderMaterial
 
-var animator: SSDMUIControlPulseAnimator
+var animator: SSDMUIPulseAnimator
 
 
 func set_min_alpha(new_min: float) -> void:
@@ -38,5 +38,5 @@ func stop() -> void:
 
 
 func _ready() -> void:
-	animator = SSDMUIControlPulseAnimator.new(animation_target, shader_material, SSDMUIGlobal.PULSE_SPEED, SSDMUIGlobal.PULSE_ENABLED, speed, background_color, duration)
+	animator = SSDMUIPulseAnimator.new(animation_target, shader_material, SSDMUIGlobal.PULSE_SPEED, SSDMUIGlobal.PULSE_ENABLED, speed, background_color, duration)
 	set_min_alpha(min_alpha)

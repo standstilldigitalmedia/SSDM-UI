@@ -1,5 +1,5 @@
-class_name SSDMUIControlPulseAnimator
-extends SSDMUISingleControlShaderAnimatorBase
+class_name SSDMUIPulseAnimator
+extends SSDMUIShaderAnimatorBase
 	
 		
 func set_min_alpha(new_min_alpha: float) -> void:

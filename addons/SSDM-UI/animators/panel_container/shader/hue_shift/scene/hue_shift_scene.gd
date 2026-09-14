@@ -9,7 +9,7 @@ extends PanelContainer
 @export var animation_target: Control
 @export var shader_material: ShaderMaterial
 
-var _animator: SSDMUIControlHueShiftAnimator
+var _animator: SSDMUIHueShiftAnimator
 
 
 func set_speed(new_speed) -> void:
@@ -33,4 +33,4 @@ func stop() -> void:
 
 
 func _ready() -> void:
-	_animator = SSDMUIControlHueShiftAnimator.new(animation_target, shader_material, SSDMUIGlobal.HUE_SHIFT_SPEED, SSDMUIGlobal.HUE_SHIFT_ENABLED, speed, background_color, duration)
+	_animator = SSDMUIHueShiftAnimator.new(animation_target, shader_material, SSDMUIGlobal.HUE_SHIFT_SPEED, SSDMUIGlobal.HUE_SHIFT_ENABLED, speed, background_color, duration)

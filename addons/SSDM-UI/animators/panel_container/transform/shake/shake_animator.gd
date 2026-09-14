@@ -1,8 +1,8 @@
 @tool
-class_name SSDMUIControlShakeAnimator
+class_name SSDMUIShakeAnimator
 extends SSDMUITweenedTransformAnimatorBase
 
-@export var amount: float = 3.0 
+var amount: float = 3.0 
 
 
 func set_amount(new_shake_amount: float) -> void:

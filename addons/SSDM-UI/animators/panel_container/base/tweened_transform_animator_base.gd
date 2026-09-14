@@ -11,6 +11,16 @@ func set_background_color(new_background_color: Color) -> void:
 	new_style_box.bg_color = new_background_color
 	background_color = new_background_color
 	
+	
+func set_content(new_content: Control) -> void:
+	content = new_content
+	await content.get_tree().process_frame
+	content.reparent(panel_container)
+	
+	
+func set_panel_container(new_panel_container: PanelContainer) -> void:
+	panel_container = new_panel_container
+		
 
 func _get_pivot_offset(node: Control, preset: SSDMUIGlobal.RotationPivot) -> Vector2:
 	match preset:
@@ -33,10 +43,3 @@ func _get_pivot_offset(node: Control, preset: SSDMUIGlobal.RotationPivot) -> Vec
 		SSDMUIGlobal.RotationPivot.BOTTOM_RIGHT:
 			return node.size
 	return Vector2.ZERO
-	
-	
-func _ready() -> void:
-	if content:
-		await content.get_tree().process_frame
-		content.reparent(panel_container)
-	set_background_color(background_color)

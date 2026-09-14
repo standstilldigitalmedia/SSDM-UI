@@ -1,12 +1,11 @@
-class_name SSDMUIControlSlideOutAnimator
+class_name SSDMUISlideOutAnimator
 extends SSDMUITweenedTransformAnimatorBase
 
-var start_full: bool = false
+var start_full: bool = true
 var axis: SSDMUIGlobal.Axis = SSDMUIGlobal.Axis.HORIZONTAL
 var open_direction: SSDMUIGlobal.OpenDirection = SSDMUIGlobal.OpenDirection.POSITIVE
 var panel_width: float = 200.0
 
-var _property_name: String
 var _target_size: float
 var _current_size: float
 
@@ -25,7 +24,7 @@ func set_panel_width(new_panel_width: float) -> void:
 	
 func _init_tween_reverse() -> void:
 	if axis == SSDMUIGlobal.Axis.VERTICAL:
-		_property_name = SSDMUIGlobal.TRANSFORM_Y_PROPERTY
+		_tween_property_name = SSDMUIGlobal.TRANSFORM_Y_PROPERTY
 		_target_size = panel_container.get_combined_minimum_size().y
 		if open_direction == SSDMUIGlobal.OpenDirection.POSITIVE:
 			_tween_target.size_flags_vertical = 0
@@ -35,7 +34,7 @@ func _init_tween_reverse() -> void:
 			panel_container.grow_vertical = Control.GROW_DIRECTION_END
 		_tween_target.custom_minimum_size.y = 0
 	else:
-		_property_name = SSDMUIGlobal.TRANSFORM_X_PROPERTY
+		_tween_property_name = SSDMUIGlobal.TRANSFORM_X_PROPERTY
 		_target_size = panel_width
 		_tween_target.custom_minimum_size.x = panel_width
 		_tween_target.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -59,14 +58,14 @@ func _init_tween_reverse() -> void:
 	
 func _init_tween_forward() -> void:
 	if axis == SSDMUIGlobal.Axis.VERTICAL:
-		_property_name = SSDMUIGlobal.TRANSFORM_Y_PROPERTY
+		_tween_property_name = SSDMUIGlobal.TRANSFORM_Y_PROPERTY
 		_current_size = _tween_target.custom_minimum_size.y if _tween_target.custom_minimum_size.y > 0 else _tween_target.size.y
 		if open_direction == SSDMUIGlobal.OpenDirection.POSITIVE:
 			_tween_target.size_flags_vertical = 0  
 		else: 
 			Control.SIZE_SHRINK_END
 	else:
-		_property_name = SSDMUIGlobal.TRANSFORM_X_PROPERTY
+		_tween_property_name = SSDMUIGlobal.TRANSFORM_X_PROPERTY
 		if _tween_target.custom_minimum_size.x > 0:
 			_current_size = _tween_target.custom_minimum_size.x  
 		else:
@@ -81,28 +80,41 @@ func _init_tween_forward() -> void:
 func _tween_forward() -> void:
 	if start_full:
 		_init_tween_forward()
-		super()
+		_tween_to = 0
+		_tween_from = _current_size
 	else:
 		_init_tween_reverse()
-		_main_tween.tween_property(self, _property_name, _target_size, _speed).from(0)
-	await _main_tween.finished
-	finished.emit()
+		_tween_to = _target_size
+		_tween_from = 0
+	super()
 	
 	
 func _tween_reverse() -> void:
 	if start_full:
 		_init_tween_reverse()
-		_main_tween.tween_property(self, _property_name, _target_size, _speed).from(0)
+		_tween_to = 0
+		_tween_from = _target_size
 	else:
-		self.custom_minimum_size.x = panel_width
+		_tween_target.custom_minimum_size.x = panel_width
 		_init_tween_forward()
-		_main_tween.tween_property(self, _property_name, 0, _speed).from(_current_size)
-	await _main_tween.finished
-	finished.emit()
+		_tween_to = _current_size
+		_tween_from = 0
+	super()
 	
 	
-func _ready() -> void:
+func _init(
+	tween_target: Control,
+	tween_property_name: String,
+	speed: float,
+	tween_from: Variant,
+	tween_to: Variant,
+	transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None,
+	ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
+	ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
+	set_parallel: bool = false,
+	main_tween: Tween = null
+) -> void:
+	super(tween_target, tween_property_name, speed, tween_from, tween_to, transition_type, ease_type_play, ease_type_reverse)
 	_tween_target.clip_contents = true
 	if start_full:
-		self.custom_minimum_size.x = panel_width
-	super()
+		_tween_target.custom_minimum_size.x = panel_width

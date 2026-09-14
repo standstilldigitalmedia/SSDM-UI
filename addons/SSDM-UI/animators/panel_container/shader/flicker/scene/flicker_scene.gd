@@ -10,7 +10,7 @@ extends PanelContainer
 @export var animation_target: Control
 @export var shader_material: ShaderMaterial
 
-var _animator: SSDMUIControlFlickerAnimator
+var _animator: SSDMUIFlickerAnimator
 
 
 func set_min_alpha(new_min: float) -> void:
@@ -38,7 +38,7 @@ func stop() -> void:
 
 
 func _ready() -> void:
-	_animator = SSDMUIControlFlickerAnimator.new(
+	_animator = SSDMUIFlickerAnimator.new(
 		animation_target, 
 		shader_material, 
 		SSDMUIGlobal.FLICKER_SPEED, 

@@ -1,5 +1,5 @@
-class_name SSDMUIControlFlickerAnimator
-extends SSDMUISingleControlShaderAnimatorBase
+class_name SSDMUIFlickerAnimator
+extends SSDMUIShaderAnimatorBase
 
 
 func set_min_alpha(new_min: float) -> void:

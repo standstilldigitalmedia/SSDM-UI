@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
 bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="RotateScene" type="Control" unique_id=1991166403]
+[node name="RotateScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("panel_container", "isolation")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -13,6 +13,8 @@ offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_6k0ch")
+panel_container = NodePath("Isolation/ContentPanelContainer")
+isolation = NodePath("Isolation")
 
 [node name="Isolation" type="Control" parent="." unique_id=1997684978]
 layout_mode = 1

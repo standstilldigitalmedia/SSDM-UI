@@ -11,7 +11,7 @@ extends PanelContainer
 @export var animation_target: Control
 @export var shader_material: ShaderMaterial
 
-var _animator: SSDMUIControlShimmerAnimator
+var _animator: SSDMUIShimmerAnimator
 
 
 func set_width(new_width: float) -> void:
@@ -43,6 +43,6 @@ func stop() -> void:
 
 
 func _ready() -> void:
-	_animator = SSDMUIControlShimmerAnimator.new(animation_target, shader_material, SSDMUIGlobal.SHIMMER_SPEED, SSDMUIGlobal.SHIMMER_ENABLED, speed, background_color, duration)
+	_animator = SSDMUIShimmerAnimator.new(animation_target, shader_material, SSDMUIGlobal.SHIMMER_SPEED, SSDMUIGlobal.SHIMMER_ENABLED, speed, background_color, duration)
 	_animator.set_brightness(brightness)
 	_animator.set_width(width)

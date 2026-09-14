@@ -1,2 +1,2 @@
-class_name SSDMUIControlHueShiftAnimator
-extends SSDMUISingleControlShaderAnimatorBase
+class_name SSDMUIHueShiftAnimator
+extends SSDMUIShaderAnimatorBase

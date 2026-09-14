@@ -96,7 +96,9 @@ func _init(
 	tween_to: Variant,
 	transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None,
 	ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
-	ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
+	ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
+	set_parallel: bool = false,
+	main_tween: Tween = null
 ) -> void:
 	_tween_target = tween_target
 	_tween_property_name = tween_property_name
@@ -106,3 +108,5 @@ func _init(
 	_transition_type = transition_type
 	_ease_type_play = ease_type_play
 	_ease_type_reverse = ease_type_reverse
+	_set_parallel = set_parallel
+	_main_tween = main_tween

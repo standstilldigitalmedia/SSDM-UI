@@ -314,7 +314,6 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 content = NodePath("Label")
-transition_type = 5
 
 [node name="Label" type="Label" parent="CenterContainer/GridContainer/Rotation/MarginContainer/HBoxContainer/VBoxContainer/RotateScene" unique_id=831563912]
 layout_mode = 0
@@ -441,7 +440,6 @@ custom_minimum_size = Vector2(200, 100)
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 2
-start_full = true
 content = NodePath("Label")
 
 [node name="Label" type="Label" parent="CenterContainer/GridContainer/Slide/MarginContainer/HBoxContainer/VBoxContainer/SlideOutScene" unique_id=1965744194]
@@ -557,8 +555,6 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 content = NodePath("Label")
-speed = 0.05
-transition_type = 1
 
 [node name="Label" type="Label" parent="CenterContainer/GridContainer/Shake/MarginContainer/HBoxContainer2/VBoxContainer/ShakeScene" unique_id=1607784188]
 layout_mode = 1
