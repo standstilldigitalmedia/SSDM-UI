@@ -79,6 +79,8 @@ const SHIMMER_SPEED: String = "shimmer_speed"
 const SHIMMER_WIDTH: String = "shimmer_width"
 const SHIMMER_BRIGHTNESS: String = "shimmer_brightness"
 
+const COLOR_ENABLED: String = "color_enabled"
+
 const DISSOLVE_ENABLED: String = "dissolve_enabled"
 const DISSOLVE_MODE: String = "dissolve_mode"
 const DISSOLVE_PROGRESS: String = "dissolve_progress"

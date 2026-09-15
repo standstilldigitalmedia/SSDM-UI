@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c7y1a735h3d3d"]
+
+[ext_resource type="Script" uid="uid://bd4fhc0nv1w52" path="res://addons/SSDM-UI/animators/transform/position/position_scene.gd" id="1_of3wo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
+bg_color = Color(1, 1, 1, 0.078431375)
+
+[node name="PositionScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("panel_container")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_of3wo")
+panel_container = NodePath("ContentPanelContainer")
+
+[node name="ContentPanelContainer" type="PanelContainer" parent="." unique_id=1160490147]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_astwa")
