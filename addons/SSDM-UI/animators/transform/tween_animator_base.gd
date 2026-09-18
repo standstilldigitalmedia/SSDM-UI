@@ -13,7 +13,7 @@ var _transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.
 var _ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
 var _ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
 
-
+var _set_tween: Tween
 var _main_tween: Tween
 var _set_parallel: bool = false
 
@@ -40,6 +40,25 @@ func set_tween_from(new_tween_from: Variant) -> void:
 	
 func set_tween_to(new_tween_to: Variant) -> void:
 	_tween_to = new_tween_to
+	
+
+func set_tween(new_set_tween: Tween) -> void:
+	_set_tween = new_set_tween
+	
+	
+static func create_tween(
+		tween_parent: Control, 
+		transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None, 
+		ease_type: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None, 
+		parallel: bool = false
+	) -> Tween:
+	var new_tween: Tween = tween_parent.create_tween()
+	new_tween.set_parallel(parallel)
+	if transition_type < int(SSDMUIGlobal.TransitionType.None):
+		new_tween.set_trans(int(transition_type))
+		if ease_type < int(SSDMUIGlobal.EaseType.None):
+			new_tween.set_ease(int(ease_type))
+	return new_tween
 	
 	
 func stop() -> void:
@@ -70,23 +89,19 @@ func _tween_reverse() -> void:
 	await _main_tween.finished
 	finished.emit()
 	
-	
+
 func _create_play_tween() -> void:
-	_main_tween = _tween_parent.create_tween()
-	_main_tween.set_parallel(_set_parallel)
-	if _ease_type_play < int(SSDMUIGlobal.EaseType.None):
-		_main_tween.set_ease(int(_ease_type_play))
-	if _transition_type < int(SSDMUIGlobal.TransitionType.None):
-		_main_tween.set_trans(int(_transition_type))
-	
-	
+	if _set_tween:
+		_main_tween = _set_tween
+	else:
+		_main_tween = create_tween(_tween_parent, _transition_type, _ease_type_play, _set_parallel)
+		
+			
 func _create_reverse_tween() -> void:
-	_main_tween = _tween_parent.create_tween()
-	_main_tween.set_parallel(_set_parallel)
-	if _ease_type_reverse < int(SSDMUIGlobal.EaseType.None):
-		_main_tween.set_ease(int(_ease_type_reverse))
-	if _transition_type < int(SSDMUIGlobal.TransitionType.None):
-		_main_tween.set_trans(int(_transition_type))
+	if _set_tween:
+		_main_tween = _set_tween
+	else:
+		_main_tween = create_tween(_tween_parent, _transition_type, _ease_type_reverse, _set_parallel)
 		
 		
 func _init(
@@ -98,9 +113,7 @@ func _init(
 	tween_to: Variant,
 	transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None,
 	ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
-	ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
-	set_parallel: bool = false,
-	main_tween: Tween = null
+	ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
 ) -> void:
 	_tween_target = tween_target
 	_tween_parent = tween_parent
@@ -111,5 +124,3 @@ func _init(
 	_transition_type = transition_type
 	_ease_type_play = ease_type_play
 	_ease_type_reverse = ease_type_reverse
-	_set_parallel = set_parallel
-	_main_tween = main_tween

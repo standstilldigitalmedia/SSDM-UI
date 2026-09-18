@@ -31,11 +31,9 @@ func _init(
 		ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
 		ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
 		duration: float = 0.0,
-		set_parallel: bool = false,
-		main_tween: Tween = null
 	) -> void:
 		shader_animator = SSDMUIShaderAnimatorBase.new(animation_parent, shader_material, "", SSDMUIGlobal.DISSOLVE_ENABLED, 0, background_color, duration)
-		tween_animator = SSDMUITransformAnimatorBase.new(shader_material, animation_parent, SSDMUIGlobal.SHADER_PARAMETER + SSDMUIGlobal.DISSOLVE_PROGRESS, speed, 1, 0, transition_type, ease_type_play, ease_type_reverse, set_parallel, main_tween)
+		tween_animator = SSDMUITransformAnimatorBase.new(shader_material, animation_parent, SSDMUIGlobal.SHADER_PARAMETER + SSDMUIGlobal.DISSOLVE_PROGRESS, speed, 1, 0, transition_type, ease_type_play, ease_type_reverse)
 	
 
 """@export var dissolve_speed: float = 1.0

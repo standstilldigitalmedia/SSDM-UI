@@ -1,24 +1,34 @@
 [gd_scene format=3 uid="uid://de6htrg5bc5ht"]
 
 [ext_resource type="Script" uid="uid://baiaa8hv4g1yb" path="res://addons/SSDM-UI/animators/combined/combined_animator.gd" id="1_pjffr"]
+[ext_resource type="Material" uid="uid://rnfgi2h3fs8l" path="res://addons/SSDM-UI/animators/combined/combined_material.tres" id="2_kswpg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
 bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="CombinedScene" type="Control" unique_id=1991166403]
+[node name="CombinedScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("animation_target", "content", "panel_container", "isolation")]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_pjffr")
+background_color = Color(1, 0, 0, 1)
+flicker_speed = 10.0
 hue_shift_enabled = true
-hue_shift_speed = 1.0
+pulse_enabled = true
+pulse_speed = 10.0
 shimmer_enabled = true
-shimmer_speed = 1.0
-shimmer_width = 0.1
-shimmer_brightness = 10.0
+shimmer_brightness = 0.2
+position_enabled = true
+position_offset = Vector2(200, 200)
+rotate_enabled = true
+scale_enabled = true
+animation_target = NodePath("Isolation/ContentPanelContainer")
+shader_material = ExtResource("2_kswpg")
+content = NodePath("Isolation/ContentPanelContainer/Label")
+panel_container = NodePath("Isolation/ContentPanelContainer")
+isolation = NodePath("Isolation")
 
 [node name="Isolation" type="Control" parent="." unique_id=1997684978]
 layout_mode = 1
@@ -37,3 +47,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_astwa")
+
+[node name="Label" type="Label" parent="Isolation/ContentPanelContainer" unique_id=1387209350]
+layout_mode = 2
