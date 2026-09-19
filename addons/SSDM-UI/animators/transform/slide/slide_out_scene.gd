@@ -19,7 +19,7 @@ func set_panel_width(new_panel_width: float) -> void:
 	
 	
 func _ready() -> void:
-	_animator = SSDMUISlideOutAnimator.new(self, self, "", speed, 0.0, 0.0, transition_type, ease_type_play, ease_type_reverse)
+	_animator = SSDMUISlideOutAnimator.new(self, "", 0.0, 0.0, duration, panel_container, transition_type, ease_type_play, ease_type_reverse)
 	panel_container.custom_minimum_size.x = panel_width
 	_animator.set_panel_container(panel_container)
 	_animator.set_background_color(background_color)

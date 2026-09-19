@@ -6,7 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_astwa"]
 bg_color = Color(1, 1, 1, 0.078431375)
 
-[node name="CombinedScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("animation_target", "content", "panel_container", "isolation")]
+[node name="CombinedScene" type="Control" unique_id=1991166403 node_paths=PackedStringArray("material_target", "content", "panel_container", "isolation")]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 3
 anchors_preset = 0
@@ -14,17 +14,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_pjffr")
 background_color = Color(1, 0, 0, 1)
-flicker_speed = 10.0
 hue_shift_enabled = true
-pulse_enabled = true
-pulse_speed = 10.0
 shimmer_enabled = true
 shimmer_brightness = 0.2
+flicker_speed = 10.0
+pulse_enabled = true
+pulse_speed = 10.0
 position_enabled = true
 position_offset = Vector2(200, 200)
 rotate_enabled = true
+rotate_to_degrees = 720.0
 scale_enabled = true
-animation_target = NodePath("Isolation/ContentPanelContainer")
+material_target = NodePath("Isolation/ContentPanelContainer")
 shader_material = ExtResource("2_kswpg")
 content = NodePath("Isolation/ContentPanelContainer/Label")
 panel_container = NodePath("Isolation/ContentPanelContainer")

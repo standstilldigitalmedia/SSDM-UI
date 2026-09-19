@@ -35,7 +35,7 @@ func set_pivot_preset(new_pivot_preset: SSDMUIGlobal.RotationPivot) -> void:
 	
 	
 func _ready() -> void:
-	_animator = SSDMUIScaleAnimator.new(self, self, SSDMUIGlobal.SCALE_PROPERTY, speed, scale_from, scale_to, transition_type, ease_type_play, ease_type_reverse)
+	_animator = SSDMUIScaleAnimator.new(panel_container, SSDMUIGlobal.SCALE_PROPERTY, scale_from, scale_to, duration, panel_container, transition_type, ease_type_play, ease_type_reverse)
 	_animator.set_panel_container(panel_container)
 	_animator.set_background_color(background_color)
 	_animator.set_content(content)

@@ -10,7 +10,7 @@ extends Control
 
 @export_group("Controls")
 @export var content: Control
-@export var animation_target: Control
+@export var material_target: Control
 @export var shader_material: ShaderMaterial
 
 var _animator: SSDMUITweenedShaderAnimatorBase

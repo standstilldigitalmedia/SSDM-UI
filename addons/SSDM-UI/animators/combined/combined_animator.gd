@@ -3,69 +3,73 @@ extends Control
 
 @export var background_color: Color = Color(1.0, 1.0, 1.0, 1.0)
 @export_category("Shader Animation")
-@export_group("Flicker")
-@export var flicker_enabled: bool = false
-@export var flicker_speed: float = 1.0
-@export var flicker_min_alpha: float = 0.0
-@export var flicker_duration: float = 0.0
-@export_group("Hue Shift")
+@export_group("RGB")
+@export_subgroup("Hue Shift")
 @export var hue_shift_enabled: bool
 @export var hue_shift_speed: float = 1.0
 @export var hue_shift_duration: float = 0.0
-@export_group("Pulse")
-@export var pulse_enabled: bool = false
-@export var pulse_speed: float = 1.0
-@export var pulse_min_alpha: float = 0.0
-@export var pulse_duration: float = 0.0
-@export_group("Shimmer")
+@export_subgroup("Shimmer")
 @export var shimmer_enabled: bool = false
 @export var shimmer_speed: float = 1.0
 @export var shimmer_width: float = 0.1
 @export var shimmer_brightness: float = 1.0
 @export var shimmer_duration: float = 0.0
-@export_group("Color")
+@export_subgroup("Color")
 @export var color_enabled: bool = false
 @export var to_color: Color = Color(0,0,0,1)
 @export var color_speed: float = 1.0
-@export_group("Dissolve")
+@export_group("Alpha")
+@export_subgroup("Flicker")
+@export var flicker_enabled: bool = false
+@export var flicker_speed: float = 1.0
+@export var flicker_min_alpha: float = 0.0
+@export var flicker_duration: float = 0.0
+@export_subgroup("Pulse")
+@export var pulse_enabled: bool = false
+@export var pulse_speed: float = 1.0
+@export var pulse_min_alpha: float = 0.0
+@export var pulse_duration: float = 0.0
+@export_subgroup("Dissolve")
 @export var dissolve_enabled: bool = false
 @export var dissolve_mode: SSDMUIGlobal.Mode = SSDMUIGlobal.Mode.NOISE
 @export var dissolve_spread: float = 0.0
 @export var dissolve_speed: float = 1.0
 @export_category("Transform Animation")
-@export_group("Position")
+@export_group("Combinable")
+@export_subgroup("Position")
 @export var position_enabled: bool = false
 @export var position_offset: Vector2 = Vector2(20.0, 20.0)
-@export var position_speed: float = 1.0
-@export_group("Rotate")
+@export var position_duration: float = 1.0
+@export_subgroup("Rotate")
 @export var rotate_enabled: bool = false
 @export var rotate_from_degrees: float = 0.0
 @export var rotate_to_degrees: float = 360.0 
 @export var rotate_pivot_preset: SSDMUIGlobal.RotationPivot = SSDMUIGlobal.RotationPivot.CENTER
-@export var rotate_speed: float = 1.0
-@export_group("Scale")
+@export var rotate_duration: float = 1.0
+@export_subgroup("Scale")
 @export var scale_enabled: bool = false
 @export var scale_from: Vector2 = Vector2.ONE
 @export var scale_to: Vector2 = Vector2(0.0, 0.0)
 @export var scale_pivot_preset: SSDMUIGlobal.RotationPivot = SSDMUIGlobal.RotationPivot.CENTER
-@export var scale_speed: float = 1.0
-@export_group("Shake")
+@export var scale_duration: float = 1.0
+@export_group("Not Combinable")
+@export_subgroup("Shake")
 @export var shake_enabled: bool = false
 @export var shake_amount: float = 3.0
-@export var shake_speed: float = 1.0
-@export_group("Slide")
+@export var shake_duration: float = 1.0
+@export_subgroup("Slide")
 @export var slide_enabled: bool = false
 @export var slide_start_full: bool = false
 @export var slide_axis: SSDMUIGlobal.Axis = SSDMUIGlobal.Axis.HORIZONTAL
 @export var slide_open_direction: SSDMUIGlobal.OpenDirection = SSDMUIGlobal.OpenDirection.POSITIVE
 @export var slide_panel_width: float = 200.0
-@export var slide_speed: float = 1.0
+@export var slide_duration: float = 1.0
 @export_category("Transistion and Easing")
 @export var transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None
 @export var ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
 @export var ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
-@export_group("Controls")
-@export var animation_target: Control
+@export_category("Controls")
+@export var material_target: Control
 @export var shader_material: ShaderMaterial
 @export var content: Control
 @export var panel_container: PanelContainer
@@ -87,16 +91,23 @@ var dissolve_animator: SSDMUIDissolveAnimator
 
 
 func _ready() -> void:
-	flicker_animator = SSDMUIFlickerAnimator.new(animation_target, shader_material, SSDMUIGlobal.FLICKER_SPEED, SSDMUIGlobal.FLICKER_ENABLED, flicker_speed, background_color, flicker_duration)
-	hue_shift_animator = SSDMUIHueShiftAnimator.new(animation_target, shader_material, SSDMUIGlobal.HUE_SHIFT_SPEED, SSDMUIGlobal.HUE_SHIFT_ENABLED, hue_shift_speed, background_color, hue_shift_duration)
-	pulse_animator = SSDMUIPulseAnimator.new(animation_target, shader_material, SSDMUIGlobal.PULSE_SPEED, SSDMUIGlobal.PULSE_ENABLED, pulse_speed, background_color, pulse_duration)
-	shimmer_animator = SSDMUIShimmerAnimator.new(animation_target, shader_material, SSDMUIGlobal.SHIMMER_SPEED, SSDMUIGlobal.SHIMMER_ENABLED, shimmer_speed, background_color, shimmer_duration)
+	flicker_animator = SSDMUIFlickerAnimator.new(material_target, shader_material, SSDMUIGlobal.FLICKER_SPEED, SSDMUIGlobal.FLICKER_ENABLED, background_color, flicker_speed, flicker_duration)
+	hue_shift_animator = SSDMUIHueShiftAnimator.new(material_target, shader_material, SSDMUIGlobal.HUE_SHIFT_SPEED, SSDMUIGlobal.HUE_SHIFT_ENABLED, background_color, hue_shift_speed, hue_shift_duration)
+	pulse_animator = SSDMUIPulseAnimator.new(material_target, shader_material, SSDMUIGlobal.PULSE_SPEED, SSDMUIGlobal.PULSE_ENABLED, background_color, pulse_speed, pulse_duration)
+	shimmer_animator = SSDMUIShimmerAnimator.new(material_target, shader_material, SSDMUIGlobal.SHIMMER_SPEED, SSDMUIGlobal.SHIMMER_ENABLED, background_color, shimmer_speed, shimmer_duration)
 	
-	position_animator = SSDMUIPositionAnimator.new(self, self, SSDMUIGlobal.POSITION_PROPERTY, position_speed, Vector2.ZERO, position_offset)
-	rotate_animator = SSDMUIRotateAnimator.new(self, self, SSDMUIGlobal.ROTATION_PROPERTY, rotate_speed, rotate_from_degrees, rotate_to_degrees)
-	scale_animator = SSDMUIScaleAnimator.new(self, self, SSDMUIGlobal.SCALE_PROPERTY, scale_speed, scale_from, scale_to)
-	shake_animator = SSDMUIShakeAnimator.new(self, self, "", shake_speed, 0, 0)
-	slide_animator = SSDMUISlideOutAnimator.new(self, self, "", slide_speed, 0, 0)
+	position_animator = SSDMUIPositionAnimator.new(panel_container, SSDMUIGlobal.POSITION_PROPERTY, Vector2.ZERO, position_offset, position_duration, panel_container)
+	rotate_animator = SSDMUIRotateAnimator.new(panel_container, SSDMUIGlobal.ROTATION_PROPERTY, rotate_from_degrees, rotate_to_degrees, rotate_duration, panel_container)
+	scale_animator = SSDMUIScaleAnimator.new(panel_container, SSDMUIGlobal.SCALE_PROPERTY, scale_from, scale_to, scale_duration, panel_container)
+	shake_animator = SSDMUIShakeAnimator.new(panel_container, "", 0, 0, shake_duration, panel_container)
+	slide_animator = SSDMUISlideOutAnimator.new(panel_container, "", 0, 0, slide_duration, panel_container)
+	
+	color_animator = SSDMUIColorAnimator.new()
+	color_animator.init_shader(material_target, shader_material, "", SSDMUIGlobal.COLOR_ENABLED, background_color, color_speed, color_speed)
+	color_animator.init_tween(shader_material, SSDMUIGlobal.BACKGROUND_COLOR, background_color, to_color, color_speed, panel_container, transition_type, ease_type_play, ease_type_reverse)
+	dissolve_animator = SSDMUIDissolveAnimator.new()
+	dissolve_animator.init_shader(material_target, shader_material, "", SSDMUIGlobal.DISSOLVE_ENABLED, background_color, dissolve_speed, dissolve_speed)
+	dissolve_animator.init_tween(shader_material, SSDMUIGlobal.BACKGROUND_COLOR, 0, 0, dissolve_speed, panel_container, transition_type, ease_type_play, ease_type_reverse)
 	
 	flicker_animator.set_min_alpha(flicker_min_alpha)
 	pulse_animator.set_min_alpha(pulse_min_alpha)

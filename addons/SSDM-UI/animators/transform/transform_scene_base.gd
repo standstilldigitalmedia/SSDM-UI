@@ -1,7 +1,7 @@
 class_name SSDMUITransformSceneBase
 extends Control
 
-@export var speed: float = 1.0
+@export var duration: float = 1.0
 @export var transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None
 @export var ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
 @export var ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
@@ -14,8 +14,8 @@ extends Control
 var _animator: SSDMUITransformAnimatorBase
 
 
-func set_speed(new_speed: float) -> void:
-	_animator.set_speed(new_speed)
+func set_duration(new_duration: float) -> void:
+	_animator.set_duration(new_duration)
 	
 	
 func set_transition_type(new_transition_type) -> void:

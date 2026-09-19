@@ -23,63 +23,63 @@ func set_panel_width(new_panel_width: float) -> void:
 	
 func _init_tween_reverse() -> void:
 	if axis == SSDMUIGlobal.Axis.VERTICAL:
-		_tween_property_name = SSDMUIGlobal.TRANSFORM_Y_PROPERTY
+		_property_name = SSDMUIGlobal.TRANSFORM_Y_PROPERTY
 		_target_size = panel_container.get_combined_minimum_size().y
 		if open_direction == SSDMUIGlobal.OpenDirection.POSITIVE:
-			_tween_target.size_flags_vertical = 0
+			panel_container.size_flags_vertical = 0
 			panel_container.grow_vertical = Control.GROW_DIRECTION_BEGIN
 		else:
-			_tween_target.size_flags_vertical = Control.SIZE_SHRINK_END
+			panel_container.size_flags_vertical = Control.SIZE_SHRINK_END
 			panel_container.grow_vertical = Control.GROW_DIRECTION_END
-		_tween_target.custom_minimum_size.y = 0
+		panel_container.custom_minimum_size.y = 0
 	else:
-		_tween_property_name = SSDMUIGlobal.TRANSFORM_X_PROPERTY
+		_property_name = SSDMUIGlobal.TRANSFORM_X_PROPERTY
 		_target_size = panel_width
-		_tween_target.custom_minimum_size.x = panel_width
-		_tween_target.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		panel_container.custom_minimum_size.x = panel_width
+		panel_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		panel_container.grow_vertical = Control.GROW_DIRECTION_BEGIN
 		if open_direction == SSDMUIGlobal.OpenDirection.POSITIVE:
-			_tween_target.size_flags_horizontal = 0
+			panel_container.size_flags_horizontal = 0
 			panel_container.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 		else:
-			_tween_target.size_flags_horizontal = Control.SIZE_SHRINK_END
+			panel_container.size_flags_horizontal = Control.SIZE_SHRINK_END
 			panel_container.grow_horizontal = Control.GROW_DIRECTION_END
 	
-	await _tween_target.get_tree().process_frame
+	await panel_container.get_tree().process_frame
 	
 	if axis == SSDMUIGlobal.Axis.VERTICAL:
 		_target_size = panel_container.get_combined_minimum_size().y
 	else:
 		var panel_height = panel_container.get_combined_minimum_size().y
-		_tween_target.custom_minimum_size.y = panel_height
-		_tween_target.custom_minimum_size.x = 0
+		panel_container.custom_minimum_size.y = panel_height
+		panel_container.custom_minimum_size.x = 0
 		
-	_tween_to = 0
-	_tween_from = _target_size
+	_final_value = 0
+	_begin_value = _target_size
 	
 	
 func _init_tween_forward() -> void:
 	if axis == SSDMUIGlobal.Axis.VERTICAL:
-		_tween_property_name = SSDMUIGlobal.TRANSFORM_Y_PROPERTY
-		_current_size = _tween_target.custom_minimum_size.y if _tween_target.custom_minimum_size.y > 0 else _tween_target.size.y
+		_property_name = SSDMUIGlobal.TRANSFORM_Y_PROPERTY
+		_current_size = panel_container.custom_minimum_size.y if panel_container.custom_minimum_size.y > 0 else panel_container.size.y
 		if open_direction == SSDMUIGlobal.OpenDirection.POSITIVE:
-			_tween_target.size_flags_vertical = 0  
+			panel_container.size_flags_vertical = 0  
 		else: 
 			Control.SIZE_SHRINK_END
 	else:
-		_tween_property_name = SSDMUIGlobal.TRANSFORM_X_PROPERTY
-		if _tween_target.custom_minimum_size.x > 0:
-			_current_size = _tween_target.custom_minimum_size.x  
+		_property_name = SSDMUIGlobal.TRANSFORM_X_PROPERTY
+		if panel_container.custom_minimum_size.x > 0:
+			_current_size = panel_container.custom_minimum_size.x  
 		else:
-			_tween_target.size.x
-		_tween_target.size_flags_vertical = Control.SIZE_EXPAND_FILL
+			panel_container.size.x
+		panel_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		if open_direction == SSDMUIGlobal.OpenDirection.POSITIVE:
-			_tween_target.size_flags_horizontal = 0  
+			panel_container.size_flags_horizontal = 0  
 		else:
 			Control.SIZE_SHRINK_END
 			
-	_tween_to = 0
-	_tween_from = _current_size
+	_begin_value = 0
+	_final_value = _current_size
 		
 
 func _tween_forward() -> void:
@@ -93,19 +93,16 @@ func _tween_reverse() -> void:
 	
 	
 func _init(
-	tween_target: Variant,
-	tween_parent: Control,
-	tween_property_name: String,
-	speed: float,
-	tween_from: Variant,
-	tween_to: Variant,
+	object: Variant,
+	property_name: String,
+	begin_value: Variant,
+	final_value: Variant,
+	duration: float, 
+	parent: Control,	
 	transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None,
 	ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
-	ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
-	set_parallel: bool = false,
-	main_tween: Tween = null
+	ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
 ) -> void:
-	super(tween_target, tween_parent, tween_property_name, speed, tween_from, tween_to, transition_type, ease_type_play, ease_type_reverse)
-	_tween_target.clip_contents = true
-	"""if start_full:
-		_tween_target.custom_minimum_size.x = panel_width"""
+	object.clip_contents = true
+	object.custom_minimum_size.x = panel_width
+	super(object, property_name, begin_value, final_value, duration, parent, transition_type, ease_type_play, ease_type_reverse)

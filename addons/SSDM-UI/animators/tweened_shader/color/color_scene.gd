@@ -14,4 +14,6 @@ func set_background_color(new_background_color: Color) -> void:
 	
 	
 func _ready() -> void:
-	_animator = SSDMUIColorAnimator.new(self, self, shader_material, speed, background_color, to_color, self, transition_type, ease_type_play, ease_type_reverse, duration)
+	_animator = SSDMUIColorAnimator.new()
+	_animator.init_shader(material_target, shader_material, "", SSDMUIGlobal.COLOR_ENABLED, background_color, speed, duration)
+	_animator.init_tween(shader_material, SSDMUIGlobal.SHADER_PARAMETER + SSDMUIGlobal.BACKGROUND_COLOR, background_color, to_color, duration, self, transition_type, ease_type_play, ease_type_reverse)

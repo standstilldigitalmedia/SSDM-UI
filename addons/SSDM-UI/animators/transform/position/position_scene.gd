@@ -21,7 +21,7 @@ func set_position_offset(new_offset: Vector2) -> void:
 	
 	
 func _ready() -> void:
-	_animator = SSDMUIPositionAnimator.new(self, self, SSDMUIGlobal.POSITION_PROPERTY, speed, Vector2.ZERO, offset, transition_type, ease_type_play, ease_type_reverse)
+	_animator = SSDMUIPositionAnimator.new(panel_container, SSDMUIGlobal.POSITION_PROPERTY, Vector2.ZERO, offset, duration, panel_container, transition_type, ease_type_play, ease_type_reverse)
 	_animator.set_panel_container(panel_container)
 	_animator.set_background_color(background_color)
 	_animator.set_content(content)

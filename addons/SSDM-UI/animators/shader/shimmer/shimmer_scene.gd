@@ -14,6 +14,6 @@ func set_brightness(new_brightness: float) -> void:
 
 
 func _ready() -> void:
-	_animator = SSDMUIShimmerAnimator.new(animation_target, shader_material, SSDMUIGlobal.SHIMMER_SPEED, SSDMUIGlobal.SHIMMER_ENABLED, speed, background_color, duration)
+	_animator = SSDMUIShimmerAnimator.new(material_target, shader_material, SSDMUIGlobal.SHIMMER_SPEED, SSDMUIGlobal.SHIMMER_ENABLED, background_color, speed, duration)
 	_animator.set_brightness(brightness)
 	_animator.set_width(width)

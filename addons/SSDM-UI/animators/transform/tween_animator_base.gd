@@ -3,12 +3,12 @@ extends RefCounted
 
 signal finished
 
-var _tween_target: Variant
-var _tween_parent: Control
-var _tween_property_name: String
-var _speed: float = 1.0
-var _tween_from: Variant
-var _tween_to: Variant
+var _object: Variant
+var _property_name: String
+var _begin_value: Variant
+var _final_value: Variant
+var _parent: Control
+var _duration: float = 1.0
 var _transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None
 var _ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
 var _ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
@@ -18,8 +18,8 @@ var _main_tween: Tween
 var _set_parallel: bool = false
 
 
-func set_speed(new_speed) -> void:
-	_speed = new_speed
+func set_duration(new_duration) -> void:
+	_duration = new_duration
 	
 
 func set_transition_type(new_trans_type: SSDMUIGlobal.TransitionType) -> void:
@@ -34,12 +34,12 @@ func set_reverse_ease_type(new_reverse_type: SSDMUIGlobal.EaseType) -> void:
 	_ease_type_reverse = new_reverse_type
 	
 	
-func set_tween_from(new_tween_from: Variant) -> void:
-	_tween_from = new_tween_from
+func set_begin_value(new_begin_value: Variant) -> void:
+	_begin_value = new_begin_value
 	
 	
-func set_tween_to(new_tween_to: Variant) -> void:
-	_tween_to = new_tween_to
+func set_final_value(new_final_value: Variant) -> void:
+	_final_value = new_final_value
 	
 
 func set_tween(new_set_tween: Tween) -> void:
@@ -47,12 +47,12 @@ func set_tween(new_set_tween: Tween) -> void:
 	
 	
 static func create_tween(
-		tween_parent: Control, 
+		parent: Control, 
 		transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None, 
 		ease_type: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None, 
 		parallel: bool = false
 	) -> Tween:
-	var new_tween: Tween = tween_parent.create_tween()
+	var new_tween: Tween = parent.create_tween()
 	new_tween.set_parallel(parallel)
 	if transition_type < int(SSDMUIGlobal.TransitionType.None):
 		new_tween.set_trans(int(transition_type))
@@ -79,13 +79,13 @@ func reverse() -> void:
 	
 	
 func _tween_forward() -> void:
-	_main_tween.tween_property(_tween_target, _tween_property_name, _tween_to, _speed).from(_tween_from)
+	_main_tween.tween_property(_object, _property_name, _final_value, _duration).from(_begin_value)
 	await _main_tween.finished
 	finished.emit()
 	
 	
 func _tween_reverse() -> void:
-	_main_tween.tween_property(_tween_target, _tween_property_name, _tween_from, _speed).from(_tween_to)
+	_main_tween.tween_property(_object, _property_name, _begin_value, _duration).from(_final_value)
 	await _main_tween.finished
 	finished.emit()
 	
@@ -94,33 +94,33 @@ func _create_play_tween() -> void:
 	if _set_tween:
 		_main_tween = _set_tween
 	else:
-		_main_tween = create_tween(_tween_parent, _transition_type, _ease_type_play, _set_parallel)
+		_main_tween = create_tween(_parent, _transition_type, _ease_type_play, _set_parallel)
 		
 			
 func _create_reverse_tween() -> void:
 	if _set_tween:
 		_main_tween = _set_tween
 	else:
-		_main_tween = create_tween(_tween_parent, _transition_type, _ease_type_reverse, _set_parallel)
+		_main_tween = create_tween(_parent, _transition_type, _ease_type_reverse, _set_parallel)
 		
 		
 func _init(
-	tween_target: Variant,
-	tween_parent: Control,
-	tween_property_name: String,
-	speed: float,
-	tween_from: Variant,
-	tween_to: Variant,
+	object: Variant,
+	property_name: String,
+	begin_value: Variant,
+	final_value: Variant,
+	duration: float,
+	parent: Control,
 	transition_type: SSDMUIGlobal.TransitionType = SSDMUIGlobal.TransitionType.None,
 	ease_type_play: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None,
 	ease_type_reverse: SSDMUIGlobal.EaseType = SSDMUIGlobal.EaseType.None
 ) -> void:
-	_tween_target = tween_target
-	_tween_parent = tween_parent
-	_tween_property_name = tween_property_name
-	_speed = speed
-	_tween_from = tween_from
-	_tween_to = tween_to
+	_object = object
+	_property_name = property_name
+	_begin_value = begin_value
+	_final_value = final_value
+	_parent = parent
+	_duration = duration
 	_transition_type = transition_type
 	_ease_type_play = ease_type_play
 	_ease_type_reverse = ease_type_reverse

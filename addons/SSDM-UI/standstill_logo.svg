@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="64"
+   height="64"
+   viewBox="0 0 64 64"
+   sodipodi:docname="standstill_logo.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="12.5"
+     inkscape:cx="31.4"
+     inkscape:cy="27.2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1">
+    <path
+       style="fill:#be5050"
+       d="M 9.22,39.16 6.24,45.4 8.56,45.46 6.16,50.2 8,50.26 10.86,44.4 8.62,44.16 10.9,39.34 Z"
+       id="path2" />
+    <path
+       style="fill:#c8c8c8;fill-opacity:1"
+       d="m 31.66,2.14 0.32,-0.28 0.12,-0.5 0.24,0.26 0.1,0.48 -0.06,4.56 0.26,0.4 v 4.72 l -0.26,0.4 -0.02,17.1 -0.44,-0.22 v -0.42 l -0.34,-0.32 0.06,-5.36 -0.16,-0.34 0.04,-2.26 0.12,-0.2 z"
+       id="path3" />
+  </g>
+</svg>

@@ -14,6 +14,8 @@ func set_spread(new_spread: float) -> void:
 	
 	
 func _ready() -> void:
-	_animator = SSDMUIDissolveAnimator.new(shader_material, self, shader_material, speed, background_color, animation_target, transition_type, ease_type_play, ease_type_reverse, duration)
+	_animator = SSDMUIDissolveAnimator.new()
+	_animator.init_shader(material_target, shader_material, "", SSDMUIGlobal.DISSOLVE_ENABLED, background_color, speed, duration)
+	_animator.init_tween(shader_material, SSDMUIGlobal.SHADER_PARAMETER + SSDMUIGlobal.DISSOLVE_PROGRESS, 1.0, 0.0, duration, self, transition_type, ease_type_play, ease_type_reverse)
 	_animator.set_mode(mode)
 	_animator.set_spread(spread)

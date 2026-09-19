@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://fahhddg2bpsx" path="res://addons/SSDM-UI/animators/tweened_shader/color/color_scene.gd" id="1_mm5a2"]
 [ext_resource type="Material" uid="uid://6bhvqp7enc13" path="res://addons/SSDM-UI/animators/tweened_shader/color/color_material.tres" id="2_t0cg8"]
 
-[node name="ColorScene" type="PanelContainer" unique_id=22623759 node_paths=PackedStringArray("animation_target")]
+[node name="ColorScene" type="PanelContainer" unique_id=22623759 node_paths=PackedStringArray("material_target")]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_mm5a2")
-animation_target = NodePath(".")
+material_target = NodePath(".")
 shader_material = ExtResource("2_t0cg8")

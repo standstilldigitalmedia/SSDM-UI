@@ -6,7 +6,7 @@ extends Control
 @export var background_color: Color = Color(1.0,1.0,1.0,1.0)
 
 @export_group("Controls")
-@export var animation_target: Control
+@export var material_target: Control
 @export var shader_material: ShaderMaterial
 
 var _animator: SSDMUIShaderAnimatorBase

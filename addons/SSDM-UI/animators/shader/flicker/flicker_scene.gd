@@ -10,13 +10,5 @@ func set_min_alpha(new_min: float) -> void:
 
 
 func _ready() -> void:
-	_animator = SSDMUIFlickerAnimator.new(
-		animation_target, 
-		shader_material, 
-		SSDMUIGlobal.FLICKER_SPEED, 
-		SSDMUIGlobal.FLICKER_ENABLED, 
-		speed,
-		background_color,
-		duration
-	)
+	_animator = SSDMUIFlickerAnimator.new(material_target, shader_material, SSDMUIGlobal.FLICKER_SPEED, SSDMUIGlobal.FLICKER_ENABLED, background_color, speed, duration)
 	_animator.set_min_alpha(min_alpha)

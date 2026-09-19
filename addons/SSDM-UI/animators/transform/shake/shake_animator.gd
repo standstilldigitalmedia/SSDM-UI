@@ -10,10 +10,10 @@ func set_amount(new_shake_amount: float) -> void:
 	
 
 func _tween_forward() -> void:
-	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, amount, _speed)
-	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, -amount, _speed)
-	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, amount / 2.0, _speed)
-	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, 0, _speed)
+	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, amount, _duration)
+	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, -amount, _duration)
+	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, amount / 2.0, _duration)
+	_main_tween.tween_property(panel_container, SSDMUIGlobal.POSITION_X_PROPERTY, 0, _duration)
 	await _main_tween.finished
 	finished.emit()
 	

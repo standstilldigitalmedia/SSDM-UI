@@ -10,5 +10,5 @@ func set_min_alpha(new_min: float) -> void:
 	
 
 func _ready() -> void:
-	_animator = SSDMUIPulseAnimator.new(animation_target, shader_material, SSDMUIGlobal.PULSE_SPEED, SSDMUIGlobal.PULSE_ENABLED, speed, background_color, duration)
+	_animator = SSDMUIPulseAnimator.new(material_target, shader_material, SSDMUIGlobal.PULSE_SPEED, SSDMUIGlobal.PULSE_ENABLED, background_color, speed, duration)
 	set_min_alpha(min_alpha)
